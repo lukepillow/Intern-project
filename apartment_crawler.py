@@ -15,6 +15,7 @@ import pandas as pd
 %matplotlib inline
 import random
 import demjson
+
 n = 20
 date = '2017_07_16'
 
@@ -40,9 +41,9 @@ def dynamic_range(low,high,area = 'ca',min_interval = 1):
         
 
 def connect_postgresql(
-                       host='data-team.cfvkbgrgybof.us-west-1.rds.amazonaws.com',
-                       user='power_user',
-                       password='AEe5CroguvFMwYiw5bzRoQ'):
+                       host=os.environ['PILLOW_RDS'],
+                       user=os.environ['RDS_USER'],
+                       password=os.environ['RDS_PASS']):
     """Set up the connection to postgresql database"""
     try:
         conn = psycopg2.connect(
@@ -257,3 +258,80 @@ def run_spider(url,visited_urls =[]):
                 continue
     print 'Runs for {:4.3} miniuts'.format((time.time()-start)/60.0)       
     return visited_urls
+
+def create_table(date):
+
+    create_cmds = '''CREATE TABLE public.crawled_apart_listing_{0}
+                        (
+                            url text NOT NULL,
+                            owner text ,
+                            title text ,
+                            unit_type text ,
+                            price_type text ,
+                            street_address text ,
+                            city text ,
+                            region text ,
+                            zip_code text ,
+                            neighborhood text,
+                            building_info text,
+                            n_of_unit integer,
+                            lat double precision,
+                            lon double precision,
+                            image_json text,
+                            amenities text,
+                            state text,
+                            description text,
+                            phone_number text,
+                            profileType text,
+                            CONSTRAINT crawled_apart_listing_{0}_pkey PRIMARY KEY (url)
+                        )
+                        WITH (
+                            OIDS = FALSE
+                        )
+                        TABLESPACE pg_default'''.format(date)
+    conn,cur = connect_postgresql()
+    cur.execute(create_cmds)
+    close_save(cur=cur,conn=conn,all=True)
+
+def add_type(data,features_dict):
+    if len(data)>0:
+        for i in range(len(data)):
+            json_data = json.loads(data[i][1])
+            for j in list(json_data['listing']):
+                t = type(json_data['listing'][j]).__name__
+                if t != 'NoneType':
+                    features_dict[j]=t
+
+visited_urls = set()
+urls_need_further_process = set()
+
+
+states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA", 
+          "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", 
+          "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", 
+          "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", 
+          "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
+
+states = ["CA"]
+
+begin = time.time()
+for idx,state in enumerate(states):
+    start = time.time()
+    low = 4000
+    high = 5000
+    interval = 200
+    visited_urls_count = len(visited_urls)
+    while low < high:
+        interval =  best_interval(low,state,interval,high)
+        print 'Best range is ',low, ' to ', low+interval,' interval ',interval
+        temp = low + interval if low + interval <= high else high
+        url = apt_url(state,low,temp-1)
+        visited_urls = run_spider(url,visited_urls)
+        low = temp
+
+    print "{:<2} states finished, Total time is {:<6.3} miniuts {:2} - {:3} new listings ".format(
+            idx+1,(time.time()-start)/60.0,state,len(visited_urls)-visited_urls_count)    
+    print '---------------------------------------------------------------------'
+
+print 'Finished all US for {:<6.3} miniuts'.format((time.time()-begin)/60.0) 
+
