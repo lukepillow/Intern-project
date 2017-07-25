@@ -19,13 +19,6 @@ def getInfo(listingID):
 	#return req.json()
 	return req
 
-	
-#TO-DO
-def parseIDs(idString):
-	#list is itemized in id | ? | listingIDlist for available ones with multiple, null for unavailable | lat | long
-	list = idString.split('|')
-
-
 
 def parseInfo(infoJSON):
 	'''Takes an infoJSON and returns desired values in tuple form.'''
