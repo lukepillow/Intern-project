@@ -47,7 +47,8 @@ def splitCoordinateBox(coordinateBox):
 	box4 = (e,i)
 	
 	return [box1,box2,box3,box4]
-	
+
+westCoastTest = ((52.85586, -138.60352),(22.106, -103.62305)) #191,000 active
 bayAreaTest = ((38.58682, -122.98645), (36.82028, -121.55823)) #19,698 active
 unitedStatesTest = ((73.17589717422607, -177.71484375),(-31.80289258670675,-31.11328125))
 
