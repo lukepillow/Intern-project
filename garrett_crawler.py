@@ -6,23 +6,19 @@ IDs = set()
 
 def scrapeIDs(coordinateBox):
 	responseJSON = search.getResponse(coordinateBox[0],coordinateBox[1])
-	newIDs = search.getPinIDs(responseJSON)
+	newIDs = search.getPinData(responseJSON)
 	
 	global IDs
 	IDs = IDs|newIDs
 	
-	if len(newIDs) > 600: #or search.getNumberOfListings(responseJSON) > 500:
+	if len(newIDs) > 600:
 		newCoordinateBoxes = splitCoordinateBox(coordinateBox)
 		scrapeIDs(newCoordinateBoxes[0])
 		scrapeIDs(newCoordinateBoxes[1])
 		scrapeIDs(newCoordinateBoxes[2])
 		scrapeIDs(newCoordinateBoxes[3])
-	#else:
-	#	print('One DFS Finished')
 	if len(IDs)%5000 > 4500:
 		print(len(IDs))
-	
-
 
 def splitCoordinateBox(coordinateBox):
 	latHeight = coordinateBox[0][0] - coordinateBox[1][0]

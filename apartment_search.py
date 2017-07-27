@@ -79,15 +79,15 @@ def getPinIDs(responseJSON):
 		results.add(unformattedData[0])
 	
 	for data in unformattedData[1:]:
-		length =len(data)
+		length = len(data)
+		
+		# This should be 99.8% of cases
+		if length == 9:
+			results.add(data[2:])
 		
 		# End of string sometimes
-		if length <= 1:
+		elif length <= 1:
 			continue
-			
-		# This should be 99.8% of cases
-		elif length == 9:
-			results.add(data[2:])
 	
 		# Something probably went wrong with parsing if this occurs
 		else:
@@ -96,7 +96,41 @@ def getPinIDs(responseJSON):
 			print(unformattedData)
 	return results
 	
-
+def getPinData(responseJSON):
+	'''Returns a set of pin data from a response.'''
+	#NOTE: if there are over 700 pins, then the server hit a max
+	#TODO, check for double listing pins (contains a list in the 3rd position instead of null)
+	dataString = responseJSON['PinsState']['cl']
+	dataList = dataString.split('|')
+	
+	results = set()
+	
+	# Add the first element
+	if not dataList == ['']:
+		results.add((dataList[0], dataList[3], dataList[4]))
+	dataList = dataList[5:]
+	
+	for i in range(0, len(dataList)-1, 5):
+	
+		length =len(dataList[i])
+			
+		# This should be 99.8% of cases
+		if length == 9:
+			if dataList[i+2] == 'null':
+				results.add((dataList[i][2:], dataList[i+3], dataList[i+4]))
+			else:
+				# Parse the ID list
+				for item in dataList[i+2][2:-2].split('},{'):
+					idJSON  = json.loads('{' + item + '}')
+					id = idJSON['ListingId']
+					results.add((id, dataList[i+3], dataList[i+4]))
+				
+		# Something probably went wrong with parsing if this occurs
+		else:
+			print('Something went wrong parsing the cl.')
+			print(dataList[i:i+5])
+			print(dataList)
+	return results
 
 
 
