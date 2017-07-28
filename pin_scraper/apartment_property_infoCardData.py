@@ -22,21 +22,25 @@ def getInfo(listingID):
 
 def parseInfo(infoJSON):
 	'''Takes an infoJSON and returns desired values in tuple form.'''
-	PropertyName = infoJSON['PropertyName']
-		#PropertyNameTitle
-	PropertyUrl = infoJSON['PropertyUrl']
-		#PropertyPhotoUrl
+	PropertyName = retrieveInfo(infoJSON, ['PropertyName'])
+	PropertyNameTitle = retrieveInfo(infoJSON, ['PropertyNameTitle'])
+	PropertyUrl = retrieveInfo(infoJSON, ['PropertyUrl'])
+	PropertyPhotoUrl = retrieveInfo(infoJSON, [])
 		#TFNPhoneLabel
+		#Amenities #LIST
+		
 	
 	#Listing
 		#ListingKey
 		#ListingType
 		#RentRollups #What is this?
+		#PropertyName
 		#PropertyStyle
 		#HasAvailabilities
+		#Rating
 		#Phones #LIST, dump as json
 		#CertifiedFreshDate
-		#Amenities #LIST, dump as json
+		#Amenities #INT
 	
 	#Listing_Attachment
 		#Uri #What is this? Main photo?
@@ -50,6 +54,10 @@ def parseInfo(infoJSON):
 		#State
 		#Submarket
 	
+	#Listing_Property Management Company
+		#CompanyID
+		#CompanyName
+	
 	#Listing_Address_Location
 	Latitude = infoJSON['Listing']['Address']['Location']['Latitude']
 	Longitude = infoJSON['Listing']['Address']['Location']['Longitude']
@@ -58,4 +66,13 @@ def parseInfo(infoJSON):
 	
 	#!!!!
 	#rating = infoJSON['Listing']['Rating']
+	
+def retrieveInfo(infoJSON, path):
+	try:
+		if path == []:
+			return infoJSON
+		else:
+			return retrieveInfo(infoJSON[path[0]], path[1:])
+	except:
+		return -1
 	
