@@ -58,7 +58,7 @@ def update_urls_to_crawl(cur):
 	for url in raw_urls:
 		urls.add(url[0])
 	
-	urls = urls - crawled_urls # Remove any crawled_ids
+	urls = urls - crawled_urls # Remove any crawled_urls
 	urls_to_crawl = list(set(urls_to_crawl) | urls) # Add any new urls to the list
 	print('Done updating urls_to_crawl.')
 	
@@ -71,11 +71,11 @@ def update_crawled_urls(cur):
 	urls = set()
 	query = 'SELECT url FROM _____'
 	cur.execute(query)
-	raw_urls = cur.fetchall() # Returns a list of the form[('7charid',), ('7charid',), ...]
+	raw_urls = cur.fetchall()
 	for url in raw_urls:
 		urls.add(url[0])
 	
-	crawled_ids = crawled_ids | ids # Update the list of crawled_urls
+	crawled_urls = crawled_urls | urls # Update the list of crawled_urls
 	urls_to_crawl = list(set(urls_to_crawl) - crawled_urls) # Remove any crawled_urls from urls_to_crawl
 	print('Done updating crawled_urls.')
 
@@ -199,7 +199,7 @@ def getJSON(soup):
 	
 	return demjson.decode(infoJSON)
 
-def crawl(url):
+def crawl(url, cur):
 	'''A crawler that follows Luke's old format exactly, but uses BeautifulSoup to parse.'''
 	response = getResponse(url)
 	soup = BeautifulSoup(getHTML(response), 'lxml')
@@ -244,7 +244,17 @@ def crawl(url):
 	data = (url,owner,title,unit_type,price_type,street_address,city,region,zip_code,\
 			neighborhood,building_info,n_of_unit,lat,lon,image_json,amenities,state,description,\
 			phone_number,profileType)
-			
+	
+
+
+	
+	mediaCollection = json.dumps(responseJSON['mediaCollection'])
+	rentals = json.dumps(responseJSON['rentals'])
+	reviews = json.dumps(responseJSON['reviews'])
+	
+	
+	
+	
 	
 	# TO-DO: INSERT data INTO database
 	return data

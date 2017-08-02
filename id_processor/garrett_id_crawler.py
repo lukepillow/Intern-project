@@ -75,7 +75,7 @@ def update_ids_to_crawl(cur):
 	
 	ids = ids - crawled_ids # Remove any crawled_ids
 	ids_to_crawl = list(set(ids_to_crawl) | ids) # Add any new ids to the list
-	print('Done updating ids_to_crawl')
+	print('Done updating ids_to_crawl.')
 	
 def update_crawled_ids(cur):
 	'''Updates from the infoCard_data db to get already crawled ids. This is slower that updating ids_to_crawl but should be rather quick.'''
@@ -92,7 +92,7 @@ def update_crawled_ids(cur):
 	
 	crawled_ids = crawled_ids | ids # Update the list of crawled_ids
 	ids_to_crawl = list(set(ids_to_crawl) - crawled_ids) # Remove any crawled_ids from ids_to_crawl
-	print('Done updating crawled_ids')
+	print('Done updating crawled_ids.')
 	
 def updateFromDatabase(cur):
 	global crawled_ids
@@ -102,7 +102,7 @@ def updateFromDatabase(cur):
 	update_ids_to_crawl(cur)
 	update_crawled_ids(cur)
 	saveProgress()
-	
+
 
 def crawl(id, cur):
 	'''Takes an id string, crawls it, and logs it in the database.'''
@@ -128,8 +128,9 @@ def go():
 		try:
 			crawlBatch(100, cur, conn)
 			print(str(len(crawled_ids)) + ' ids crawled so far.')
-		except:
-			print('Error crawling last batch.')
+		except Exception as e:
+			print('Error crawling last batch:')
+			print(e)
 			print('Changes not commited.')
 			saveProgress()
 			break
