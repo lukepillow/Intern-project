@@ -209,8 +209,5 @@ def retrieveInfo(infoJSON, path):
 		else:
 			return retrieveInfo(infoJSON[path[0]], path[1:])
 	except Exception as e:
-		print(e)
-		print('\n')
-		print(path)
-		return -1
+		return None
 	
