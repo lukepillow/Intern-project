@@ -13,6 +13,7 @@ urls_to_crawl = []
 crawled_urls = set()
 
 def loadProgress():
+	'''Loads the current progress from pickled data.'''
 	print('Loading previous progress...')
 
 	global crawled_urls
@@ -29,6 +30,7 @@ def loadProgress():
 	print('Done loading crawl progress!')
 
 def saveProgress():
+	'''Saves the current progress to pickled data.'''
 	global crawled_urls
 	global urls_to_crawl
 	
@@ -182,6 +184,7 @@ def getResponse(url):
 		return response
 
 def getHTML(response):
+	'''Wrapper to return the HTML from a 'requests' response.'''
 	return response.text
 
 def getJSON(soup):
@@ -208,7 +211,7 @@ def crawl(url, cur):
 	title = soup.title.text
 	unit_type = soup.find(class_='rentRollup').find(class_='shortText').text
 	
-	price_type_raw = list(filter(lambda x: type(x) is bs4.element.NavigableString, soup.find(class_='rentRollup').contents))
+	price_type_raw = list(filter(lambda x: type(x) is bs4.element.NavigableString, soup.find(class_='rentRollup').contents)) # Tries to follow Luke's format as close as possible on parsing
 	price_type = ' '.join(price_type_raw).strip()
 	
 	street_address = responseJSON['listingAddress']
@@ -246,24 +249,22 @@ def crawl(url, cur):
 			phone_number,profileType)
 	
 
-
+	# My additions to Luke's orginal format
 	
-	mediaCollection = json.dumps(responseJSON['mediaCollection'])
-	rentals = json.dumps(responseJSON['rentals'])
-	reviews = json.dumps(responseJSON['reviews'])
-	
-	
-	
+	mediaCollection = json.dumps(responseJSON['mediaCollection']) # mediaCollection contains more data than the carouselCollection that Luke orginally harvested.
+	rentals = json.dumps(responseJSON['rentals']) # Contains a json list of all the rental data. However does NOT contain the amount of units per specific style/model.
+	reviews = json.dumps(responseJSON['reviews']) # Review data json list, usually empty on apartments.com
 	
 	
 	# TO-DO: INSERT data INTO database
 	return data
 
-# Other stuff to add:
-#	rentals
-#	reviews
 
 
+def insert_into_db(values, cur):
+	return -1
+	
+	
 def crawlBatch(batchSize, cur, conn):
 	'''Crawls a batch of urls and commits the changes to the DB.'''
 	global urls_to_crawl
