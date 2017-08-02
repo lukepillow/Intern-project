@@ -14,10 +14,6 @@ headers = {'accept' : 'application/json, text/javascript, */*; q=0.01',
 'user-agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
 'x-requested-with' : 'XMLHttpRequest'}
 
-
-#hardPayload = '{"Map":{"BoundingBox":{"UpperLeft":{"Latitude":33.98037811701899,"Longitude":-116.5371322631836},"LowerRight":{"Latitude":33.7645924612227,"Longitude":-116.40083312988281}},"CountryCode":"US"},"Geography":{"GeographyType":7,"Address":{},"Location":{"Latitude":33.81202,"Longitude":-116.3889}},"Listing":{},"Paging":{"Page":null},"ResultSeed":558390,"Options":1,"IsBoundedSearch":null}'
-
-
 payload = {"Map":{"BoundingBox":{"UpperLeft":{"Latitude":33.98037811701899,"Longitude":-116.5371322631836},"LowerRight":{"Latitude":33.7645924612227,"Longitude":-116.40083312988281}},"CountryCode":"US"},"Geography":{"GeographyType":7,"Address":{},"Location":{"Latitude":33.81202,"Longitude":-116.3889}},"Listing":{},"Paging":{"Page":None},"ResultSeed":558390,"Options":1,"IsBoundedSearch":None}
 
 
