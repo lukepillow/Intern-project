@@ -33,6 +33,7 @@ def connect_postgresql(
         print("Unable to connect to the database Error is ", e)
 
 def saveProgress():
+	'''Saves data to pickled files to be loaded later with loadProgress().'''
 	global crawled_ids
 	global ids_to_crawl
 	
@@ -46,6 +47,7 @@ def saveProgress():
 	print('Done saving progress!')
 
 def loadProgress():
+	'''Loads the pickled data.'''
 	print('Loading previous progress...')
 
 	global crawled_ids
@@ -108,7 +110,7 @@ def crawl(id, cur):
 	'''Takes an id string, crawls it, and logs it in the database.'''
 	# Get the data
 	infoJSON = info.getInfo(id).json()
-	features = info.parseInfo(infoJSON)
+	features = info.parseInfo(infoJSON) # The info is parsed within the infoCard api wrapper
 	
 	# Insert into table 89 values
 	query = 'INSERT INTO garrett_apartments_infoCard_data VALUES (%s' + (', %s'*88) + ')'

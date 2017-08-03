@@ -201,6 +201,8 @@ def parseInfo(infoJSON):
 , VideoLabel
 , VirtualTourLabel)
 
+def getUrl(listingID):
+	return parseInfo(getInfo(listingID).json())[-10]
 
 def retrieveInfo(infoJSON, path):
 	try:

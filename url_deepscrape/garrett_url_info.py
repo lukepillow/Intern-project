@@ -255,6 +255,10 @@ def crawl(url, cur):
 	rentals = json.dumps(responseJSON['rentals']) # Contains a json list of all the rental data. However does NOT contain the amount of units per specific style/model.
 	reviews = json.dumps(responseJSON['reviews']) # Review data json list, usually empty on apartments.com
 	
+	if len(soup.find_all(class_='costarVerifiedBadge')) != 0:
+		costarVerified = True
+	else:
+		costarVerified = False
 	
 	# TO-DO: INSERT data INTO database
 	return data
