@@ -12,6 +12,9 @@ from bs4 import BeautifulSoup
 urls_to_crawl = []
 crawled_urls = set()
 
+#TODO ADD KEY FOR DETECTING SINGLE FAMILY HOM
+
+
 def loadProgress():
 	'''Loads the current progress from pickled data.'''
 	print('Loading previous progress...')
@@ -264,9 +267,11 @@ def crawl(url, cur):
 	return data
 
 
-
+#TO-DO
 def insert_into_db(values, cur):
-	return -1
+	# Luke's original table had 20 columns
+	query = 'INSERT INTO garrett_apartments_infoCard_data VALUES (%s' + (', %s'*19) + ')'
+	cur.execute(query, values)
 	
 	
 def crawlBatch(batchSize, cur, conn):
