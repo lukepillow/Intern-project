@@ -138,7 +138,7 @@ def go():
 			break
 			
 	# If any ids remain, crawl them. Otherwise, assume we broke out of the while loop due to error and exit.
-	if len(ids_to_crawl < 100):
+	if len(ids_to_crawl) < 100:
 		try:
 			crawlBatch(len(ids_to_crawl), cur, conn)
 			print('Done crawling!')
@@ -162,7 +162,7 @@ def crawlBatch(batchSize, cur, conn):
 	conn.commit()
 	
 	# Now that the changes are commited, log the ids as crawled.
-	crawled_ids = crawled_ids | batch_crawled
+	crawled_ids = crawled_ids + batch_crawled
 	ids_to_crawl = ids_to_crawl[batchSize:]
 	
 	
