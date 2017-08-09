@@ -34,7 +34,7 @@ def crawl_pin_data():
 	if not doesTableExist(pin_table):
 		print("Making new pin data table with name: " + pin_table)
 		conn, cur = login_to_database()
-		pin_crawler.makeTable(conn, pin_table)
+		pin_crawler.create_table(conn, pin_table)
 		cur.close()
 		conn.close()
 	
@@ -59,7 +59,7 @@ def crawl_infoCard_data():
 	if not doesTableExist(infoCard_table):
 		print("Making new infoCard data table with name: " + infoCard_table)
 		conn, cur = login_to_database()
-		infoCard_crawler.makeTable(conn, pin_table)
+		infoCard_crawler.create_table(conn, pin_table)
 		cur.close()
 		conn.close()
 	
@@ -91,6 +91,9 @@ def crawl_url_data():
 
 def main():
 	logging.basicConfig(filename='master.log',level=logging.DEBUG)
+	crawl_pin_data()
+	crawl_infoCard_data()
+	crawl_url_data()
 
 
 
@@ -132,7 +135,7 @@ def connect_postgresql(
         print("Unable to connect to the database Error is ",e)
 		
 
-
+# Untested
 def cleanUp():
 	if os.path.exists('__pycache__'):
 		shutil.rmtree('__pycache__')

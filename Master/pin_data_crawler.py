@@ -25,7 +25,7 @@ def scrapeIDs(coordinateBox):
 	else:
 		print(str(len(ids)) + ' pins crawled so far.')
 
-# Parallelizable?
+# Parallelizable? -Unused
 def parallel_scrape(coordinateBox):
 	responseJSON = search.getResponse(coordinateBox[0],coordinateBox[1])
 	newIds = search.getPinData(responseJSON)
@@ -75,7 +75,7 @@ def pickleData():
 	with open('pin_data/data.pickle', 'wb') as f:
 		pickle.dump(ids, f)
 
-def makeTable(conn, tableName):
+def create_table(conn, tableName):
 	query = '''CREATE TABLE {0} (
 	id CHARACTER(7) UNIQUE NOT NULL,
 	lat FLOAT8,

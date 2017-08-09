@@ -48,8 +48,9 @@ def fast_connect(
     return conn,cur
 
 def makeTable(conn, tableName):
+	'''Makes the table for all the infoCard data.'''
+	# Listing_ListingKey is the identifying column
 	query = """CREATE TABLE {0} (
-	id TEXT UNIQUE NOT NULL,
 	Amenities TEXT,
 	CheckAvailabilityTitle TEXT,
 	IncludeCheckAvailability TEXT,
@@ -85,7 +86,7 @@ def makeTable(conn, tableName):
 	Listing_IsFavorite BOOLEAN,
 	Listing_LanguagesSpoken  TEXT,
 	Listing_ListHubListingId TEXT,
-	Listing_ListingKey TEXT,
+	Listing_ListingKey CHARACTER(7) UNIQUE NOT NULL,
 	Listing_ListingSummaryType SMALLINT,
 	Listing_ListingType SMALLINT,
 	Listing_ListingTypeId SMALLINT,
