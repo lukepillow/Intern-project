@@ -216,9 +216,12 @@ def getResponse(url):
 	'''Takes a url and returns a response object.'''
 	response = requests.get(url)
 	if not response.status_code == 200:
-		print('Status code other than 200 received. Uh oh.')
-		print(response.status_code)
-		print(url)
+		if response.status_code == 404: 	# This occurs when the listing is no longer on the site and the url gets redirected
+			return
+		else:
+			print('Status code other than 200 received. Uh oh.')
+			print(response.status_code)
+			print(url)
 	else:
 		return response
 
@@ -348,30 +351,9 @@ def crawl(url):
 	cur.close()
 	conn.close()
 	#return data
-	
-	
-def crawlBatch(batchSize, cur, conn):
-	'''Crawls a batch of urls and commits the changes to the DB.'''
-	global urls_to_crawl
-	global crawled_urls
-	
-	batch_urls_to_crawl = urls_to_crawl[0:batchSize]
-	batch_crawled = set()
-	
-	for url in batch_urls_to_crawl:
-		#DOESNT INSERT YET
-		crawl(url,cur)
-		batch_crawled.add(url)
-		
-	# Commit the changes to the database after the batch is done.
-	conn.commit()
-	
-	# Now that the changes are commited, log the urls as crawled.
-	crawled_urls = crawled_urls | batch_crawled
-	urls_to_crawl = urls_to_crawl[batchSize:]
 
 def go(numThreads, batchSize):
-	'''Runs the crawler. It can safely be stopped using "ctrl-c" while crawling.'''
+	'''Runs the crawler. Cant quite be gracefully stopped yet.'''
 	# Crawl in batches of batchSize
 	global urls_to_crawl
 	global crawled_urls
@@ -399,6 +381,7 @@ def go(numThreads, batchSize):
 			print("Error crawling last few urls")
 
 if __name__ == '__main__':
-	updateFromDatabase()
-	#loadProgress()
-	go(10, 1000)
+	#updateFromDatabase()
+	loadProgress()
+	#go(20, 2000)
+	
