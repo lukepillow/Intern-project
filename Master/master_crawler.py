@@ -39,8 +39,11 @@ def crawl_pin_data():
 		conn.close()
 	
 	# Get the data
-	pin_crawler.scrapeIDs(pin_crawler.unitedStatesCoords)
-	
+	try:
+		pin_crawler.scrapeIDs(pin_crawler.unitedStatesCoords)
+	except:							# There isn't really a good way to save the crawl progress yet	
+		pin_crawler.pickleData()	# On fail, save the data anyways
+		
 	# Save a pickled copy for debug
 	pin_crawler.pickleData()
 	
@@ -77,8 +80,13 @@ def crawl_url_data():
 	import url_data_crawler as url_crawler
 	
 	# Check to see if table exists
-	
 	# Otherwise make the table
+	if not doesTableExist(infoCard_table):
+		print("Making new page data table with name: " + page_table)
+		conn, cur = login_to_database()
+		url_crawler.create_table(conn, page_table)
+		cur.close()
+		conn.close()
 	
 	# Compare tables to find which urls to crawl
 

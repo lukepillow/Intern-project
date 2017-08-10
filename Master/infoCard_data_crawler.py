@@ -47,7 +47,7 @@ def fast_connect(
     cur = conn.cursor()
     return conn,cur
 
-def makeTable(conn, tableName):
+def create_table(conn, tableName):
 	'''Makes the table for all the infoCard data.'''
 	# Listing_ListingKey is the identifying column
 	query = """CREATE TABLE {0} (
@@ -223,7 +223,7 @@ def updateFromDatabase(conn):
 	saveProgress()
 
 
-def crawl(id, tableName):
+def crawl(id):
 	'''Takes an id string, crawls it, and logs it in the database.'''
 	conn, cur = fast_connect()
 	
@@ -232,8 +232,7 @@ def crawl(id, tableName):
 	features = info.parseInfo(infoJSON) # The info is parsed within the infoCard api wrapper
 	
 	# Insert into table 89 values
-	global insert_query
-	#query = 'INSERT INTO garrett_apartments_infoCard_data VALUES (%s' + (', %s'*88) + ')'
+	query = 'INSERT INTO garrett_apartments_infoCard_data VALUES (%s' + (', %s'*88) + ')'
 	cur.execute(query, features)
 	
 	conn.commit()

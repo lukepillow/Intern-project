@@ -118,6 +118,17 @@ def fillTable(conn, tableName):
 			print(str(len(parsedIds)) + ' remaining entries to insert.')
 		except:
 			print("Error submitting last batch of data.")
+			print(e)
+			break
+	
+	if len(parsedIds) < 10000:
+		try:
+			cur.executemany(query, parsedIds)
+			conn.commit()
+			parsedIds = []
+			print('Done.')
+		except:
+			print('Error submitting final batch of ids.')
 
 	
 westCoastTest = ((52.85586, -138.60352),(22.106, -103.62305)) #191,000 active

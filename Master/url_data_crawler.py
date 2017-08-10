@@ -4,6 +4,7 @@ import json
 import re
 import demjson
 import pickle
+import os
 
 from multiprocessing import Pool
 
@@ -14,8 +15,6 @@ from bs4 import BeautifulSoup
 urls_to_crawl = []
 crawled_urls = set()
 
-#TODO ADD KEY FOR DETECTING SINGLE FAMILY HOME
-
 
 def loadProgress():
 	'''Loads the current progress from pickled data.'''
@@ -23,9 +22,9 @@ def loadProgress():
 
 	global crawled_urls
 	global urls_to_crawl
-	with open('crawled_urls.pickle', 'rb') as f1:
+	with open('page_data/crawled_urls.pickle', 'rb') as f1:
 		crawled_urls = crawled_urls | pickle.load(f1)
-	with open('urls_to_crawl.pickle', 'rb') as f2:
+	with open('page_data/urls_to_crawl.pickle', 'rb') as f2:
 		urls_to_crawl = list(set(urls_to_crawl) | set(pickle.load(f2)))
 	
 	for url in urls_to_crawl:
@@ -41,25 +40,42 @@ def saveProgress():
 	
 	print('Saving progress...')
 	
-	with open('crawled_urls.pickle', 'wb') as f1:
+	# If the page_data directory doesn't exist, make it
+	if not os.path.exists('page_data'):
+		os.makedirs('page_data')
+	
+	with open('page_data/crawled_urls.pickle', 'wb') as f1:
 		pickle.dump(crawled_urls, f1)
-	with open('urls_to_crawl.pickle', 'wb') as f2:
+	with open('page_data/urls_to_crawl.pickle', 'wb') as f2:
 		pickle.dump(urls_to_crawl, f2)
 	
 	print('Done saving progress!')
 
-def updateFromDatabase(cur):
+#TODO
+def updateFromDatabase():
+
+	loadProgress()
+
+	conn, cur = login_to_database()
+	update_urls_to_crawl(cur)
+	update_crawled_urls(cur)
+	cur.close()
+	conn.close()
 	
-	return -1
+	saveProgress()
 
 def update_urls_to_crawl(cur):
 	'''Updates from the infoCard_data to get new urls to crawl.'''
 	global crawled_urls
 	global urls_to_crawl
 	
-	print('Updating urls_to_crawl using garrett_apartments_infoCard_data...')
+	print('Updating urls_to_crawl using apartments_infoCard_data...')
 	urls = set()
-	query = 'SELECT PropertyUrl FROM garrett_apartments_infoCard_data'
+	
+	#temp
+	#query = 'SELECT PropertyUrl FROM apartments_infoCard_data'
+	query = 'SELECT PropertyUrl FROM garrett_infoCard_test'
+	
 	cur.execute(query)
 	raw_urls = cur.fetchall() # Returns a list of the form[('url',), ('url',), ...]
 	for url in raw_urls:
@@ -68,22 +84,26 @@ def update_urls_to_crawl(cur):
 	urls = urls - crawled_urls # Remove any crawled_urls
 	urls_to_crawl = list(set(urls_to_crawl) | urls) # Add any new urls to the list
 	print('Done updating urls_to_crawl.')
-	
+
+#TODO
 def update_crawled_urls(cur):
 	'''Updates from the ___ db to get already crawled urls.'''
 	global crawled_urls
 	global urls_to_crawl
 	
-	print('Updating crawled_urls using ______. This may take a second...')
+	#temp
+	table_name = 'apartments_page_data'
+	
+	print('Updating crawled_urls using' +table_name+ '. This may take a second...')
 	urls = set()
-	query = 'SELECT url FROM _____'
+	query = 'SELECT url FROM apartments_page_data'
 	cur.execute(query)
 	raw_urls = cur.fetchall()
 	for url in raw_urls:
 		urls.add(url[0])
 	
-	crawled_urls = crawled_urls | urls # Update the list of crawled_urls
-	urls_to_crawl = list(set(urls_to_crawl) - crawled_urls) # Remove any crawled_urls from urls_to_crawl
+	crawled_urls = crawled_urls | urls 						# Update the list of crawled_urls
+	urls_to_crawl = list(set(urls_to_crawl) - crawled_urls)	# Remove any crawled_urls from urls_to_crawl
 	print('Done updating crawled_urls.')
 
 
@@ -144,9 +164,12 @@ def connect_postgresql(
     except Exception as e:
         print("Unable to connect to the database Error is ",e)
 
-def create_table(date):
+def create_table():
     '''Luke code. Creates a table for all the stuff we crawl.'''
-    create_cmds = '''CREATE TABLE public.crawled_apart_listing_garrett_{0}
+    # I have added the last 6
+    import time
+    date = time.strftime("%x").replace('/', '_')
+    create_cmds = '''CREATE TABLE apartments_page_data
                         (
                             url text NOT NULL,
                             owner text ,
@@ -168,15 +191,26 @@ def create_table(date):
                             description text,
                             phone_number text,
                             profileType text,
+							
+							mediaCollection TEXT,
+							rentals TEXT,
+							reviews TEXT,
+							costarVerified BOOLEAN,
+							propertyType TEXT,
+							ListingId CHARACTER(7),
+							
+							
                             CONSTRAINT crawled_apart_listing_{0}_pkey PRIMARY KEY (url)
                         )
                         WITH (
                             OIDS = FALSE
                         )
                         TABLESPACE pg_default'''.format(date)
-    conn,cur = connect_postgresql()
+    conn,cur = login_to_database()
     cur.execute(create_cmds)
-    close_save(cur=cur,conn=conn,all=True)
+    conn.commit()
+    cur.close()
+    conn.close()
 
 def getResponse(url):
 	'''Takes a url and returns a response object.'''
@@ -184,6 +218,7 @@ def getResponse(url):
 	if not response.status_code == 200:
 		print('Status code other than 200 received. Uh oh.')
 		print(response.status_code)
+		print(url)
 	else:
 		return response
 
@@ -203,27 +238,58 @@ def getJSON(soup):
 	#	Cut off the back
 	infoJSON = infoJSON[:-(infoJSON[::-1].find(';)') + len(';)'))]
 	infoJSON = infoJSON[:-(infoJSON[::-1].find(';)') + len(';)'))]
-	
-	return demjson.decode(infoJSON)
+	try:
+		result = demjson.decode(infoJSON)
+	except:
+		infoJSON = infoJSON[:-(infoJSON[::-1].find(';)') + len(';)'))]
+		infoJSON = infoJSON[:-(infoJSON[::-1].find(';)') + len(';)'))]
+		infoJSON = infoJSON[:-(infoJSON[::-1].find(';)') + len(';)'))]
+		result = demjson.decode(infoJSON)
+	return result
 
-def crawl(url, cur):
+def crawl(url):
 	'''A crawler that follows Luke's old format exactly, but uses BeautifulSoup to parse.'''
 	response = getResponse(url)
+	
+	# Check for redirect
+	if response == None:
+		return
+	elif not response.url == url:
+		return
+	
 	soup = BeautifulSoup(getHTML(response), 'lxml')
 	responseJSON = getJSON(soup)
-	owner = soup.find_all(class_='logo')[1]['alt']
-	title = soup.title.text
-	unit_type = soup.find(class_='rentRollup').find(class_='shortText').text
 	
-	price_type_raw = list(filter(lambda x: type(x) is bs4.element.NavigableString, soup.find(class_='rentRollup').contents)) # Tries to follow Luke's format as close as possible on parsing
-	price_type = ' '.join(price_type_raw).strip()
+	#TODO improve
+	try:
+		owner = soup.find_all(class_='logo')[1]['alt']
+	except:
+		owner = None
+	
+	title = soup.title.text
+	
+	#TODO improve
+	try:
+		unit_type = soup.find(class_='rentRollup').find(class_='shortText').text
+	except:
+		unit_type = None
+	
+	try:
+		price_type_raw = list(filter(lambda x: type(x) is bs4.element.NavigableString, soup.find(class_='rentRollup').contents)) # Tries to follow Luke's format as close as possible on parsing
+		price_type = ' '.join(price_type_raw).strip()
+	except:
+		price_type = None
 	
 	street_address = responseJSON['listingAddress']
 	city = responseJSON['listingCity']
 	region = soup.find(itemprop='addressRegion').text
 	zip_code = responseJSON['listingZip']
 	neighborhood = responseJSON['listingNeighborhood']
-	building_info = re.sub('(\n)+', '', soup.find(class_='specList propertyFeatures js-spec').text.strip()).replace('\u2022', '\n')
+	
+	try:
+		building_info = re.sub('(\n)+', '', soup.find(class_='specList propertyFeatures js-spec').text.strip()).replace('\u2022', '\n')
+	except:
+		building_info = None
 	
 	n_of_unit = -1
 	try:
@@ -231,7 +297,7 @@ def crawl(url, cur):
 			if 'Units' in tag.text:
 				n_of_unit = re.search('[0-9]+', re.search('([0-9]+)(\s)(Units)', tag.text).group()).group()
 	except:
-		print(":(")
+		n_of_unit = None
 	
 	lat = responseJSON['location']['latitude']
 	lon = responseJSON['location']['longitude']
@@ -239,18 +305,20 @@ def crawl(url, cur):
 	
 	amenities = ''
 	amenitiesList = []
-	for tag in soup.find(class_='specList js-spec').ul.find_all('li'):
-		amenitiesList.append(tag.text.replace(u'\u2022',''))
-	amenities = '\n'.join(amenitiesList)
+	
+	try:
+		for tag in soup.find(class_='specList js-spec').ul.find_all('li'):
+			amenitiesList.append(tag.text.replace(u'\u2022',''))
+		amenities = '\n'.join(amenitiesList)
+	except:
+		amenities = None
 	
 	state = responseJSON['listingState']
 	description = responseJSON['listingDescription']
 	phone_number = responseJSON['phoneNumber']
 	profileType = responseJSON['profileType']
-	
-	data = (url,owner,title,unit_type,price_type,street_address,city,region,zip_code,\
-			neighborhood,building_info,n_of_unit,lat,lon,image_json,amenities,state,description,\
-			phone_number,profileType)
+
+
 	
 
 	# My additions to Luke's orginal format
@@ -264,15 +332,22 @@ def crawl(url, cur):
 	else:
 		costarVerified = False
 	
-	# TO-DO: INSERT data INTO database
-	return data
-
-
-#TO-DO
-def insert_into_db(values, cur):
-	# Luke's original table had 20 columns
-	query = 'INSERT INTO garrett_apartments_data VALUES (%s' + (', %s'*19) + ')'
-	cur.execute(query, values)
+	propertyType = responseJSON['propertyType']
+	listingId = responseJSON['listingId']
+	
+	
+	# Insert data into database
+	data = (url,owner,title,unit_type,price_type,street_address,city,region,zip_code,\
+		neighborhood,building_info,n_of_unit,lat,lon,image_json,amenities,state,description,\
+		phone_number,profileType, mediaCollection, rentals, reviews, costarVerified, propertyType, listingId)
+	
+	conn, cur = login_to_database()
+	query = 'INSERT INTO apartments_page_data VALUES (%s' + (', %s'*25) + ')'	# 26 total values to insert
+	cur.execute(query, data)
+	conn.commit()
+	cur.close()
+	conn.close()
+	#return data
 	
 	
 def crawlBatch(batchSize, cur, conn):
@@ -294,3 +369,36 @@ def crawlBatch(batchSize, cur, conn):
 	# Now that the changes are commited, log the urls as crawled.
 	crawled_urls = crawled_urls | batch_crawled
 	urls_to_crawl = urls_to_crawl[batchSize:]
+
+def go(numThreads, batchSize):
+	'''Runs the crawler. It can safely be stopped using "ctrl-c" while crawling.'''
+	# Crawl in batches of batchSize
+	global urls_to_crawl
+	global crawled_urls
+	while len(urls_to_crawl) >= batchSize:
+		batch = urls_to_crawl[:batchSize]
+		with Pool(processes=numThreads) as pool:
+			pool.map(crawl, batch)
+		
+		for url in batch:
+			crawled_urls.add(url)
+		urls_to_crawl = urls_to_crawl[batchSize:]
+		print(str(len(crawled_urls)) + " crawled so far.")
+
+	# If any urls remain, crawl them.
+	if len(urls_to_crawl) < batchSize:
+		try:
+			with Pool(processes=numThreads) as pool:
+				pool.map(crawl, urls_to_crawl)
+			
+			for url in urls_to_crawl:
+				crawled_urls.add(url)
+			urls_to_crawl = []
+			print('Done crawling!')
+		except:
+			print("Error crawling last few urls")
+
+if __name__ == '__main__':
+	updateFromDatabase()
+	#loadProgress()
+	go(10, 1000)
