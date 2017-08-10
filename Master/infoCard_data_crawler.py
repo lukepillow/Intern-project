@@ -156,9 +156,9 @@ def saveProgress():
 	
 	print('Saving progress...')
 	
-	with open('crawled_ids.pickle', 'wb') as f1:
+	with open('infoCard_data/crawled_ids.pickle', 'wb') as f1:
 		pickle.dump(crawled_ids, f1)
-	with open('ids_to_crawl.pickle', 'wb') as f2:
+	with open('infoCard_data/ids_to_crawl.pickle', 'wb') as f2:
 		pickle.dump(ids_to_crawl, f2)
 	
 	print('Done saving progress!')
@@ -169,9 +169,9 @@ def loadProgress():
 
 	global crawled_ids
 	global ids_to_crawl
-	with open('crawled_ids.pickle', 'rb') as f1:
+	with open('infoCard_data/crawled_ids.pickle', 'rb') as f1:
 		crawled_ids = crawled_ids | pickle.load(f1)
-	with open('ids_to_crawl.pickle', 'rb') as f2:
+	with open('infoCard_data/ids_to_crawl.pickle', 'rb') as f2:
 		ids_to_crawl = list(set(ids_to_crawl) | set(pickle.load(f2)))
 	
 	ids_to_crawl = list(set(ids_to_crawl) - crawled_ids)
