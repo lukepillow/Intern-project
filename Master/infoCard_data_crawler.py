@@ -146,7 +146,7 @@ def create_table(conn, tableName):
 		cur.execute(query)
 		conn.commit()
 	except:
-		print('Error creating pin database.')
+		print('Error creating infoCard database.')
 	cur.close()
 	
 def saveProgress():
@@ -225,7 +225,8 @@ def updateFromDatabase(conn):
 
 def crawl(id):
 	'''Takes an id string, crawls it, and logs it in the database.'''
-	conn, cur = fast_connect()
+	#conn, cur = fast_connect()
+	conn, cur = login_to_database()
 	
 	# Get the data
 	infoJSON = info.getInfo(id).json()
