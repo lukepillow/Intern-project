@@ -230,12 +230,15 @@ def updateFromDatabase(conn):
 
 def crawl(id):
 	'''Takes an id string, crawls it, and logs it in the database.'''
-	#conn, cur = fast_connect()
-	conn, cur = login_to_database()
-	
 	# Get the data
 	infoJSON = info.getInfo(id).json()
+	if infoJSON == None:
+		return
 	features = info.parseInfo(infoJSON) # The info is parsed within the infoCard api wrapper
+	
+	
+	#conn, cur = fast_connect()
+	conn, cur = login_to_database()
 	
 	# Insert into table 89 values
 	query = 'INSERT INTO apartments_infoCard_data VALUES (%s' + (', %s'*88) + ')'
