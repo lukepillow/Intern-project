@@ -62,19 +62,19 @@ def crawl_infoCard_data():
 	if not doesTableExist(infoCard_table):
 		print("Making new infoCard data table with name: " + infoCard_table)
 		conn, cur = login_to_database()
-		infoCard_crawler.create_table(conn, pin_table)
+		infoCard_crawler.create_table(conn, infoCard_table)
 		cur.close()
 		conn.close()
 	
 	# Compare tables to find which ids to crawl
 	# This is currently redundant, as it already does this
 	conn, cur = login_to_database()
-	infoCard_crawler.updateFromDatabase()
+	infoCard_crawler.updateFromDatabase(conn)
 	cur.close()
 	conn.close()
 	
 	# Crawl it all
-	infoCard_crawler.goWrapper(infoCard_table)
+	infoCard_crawler.goWrapper(numThreads = 20)
 
 def crawl_url_data():
 	import url_data_crawler as url_crawler
@@ -147,3 +147,6 @@ def connect_postgresql(
 def cleanUp():
 	if os.path.exists('__pycache__'):
 		shutil.rmtree('__pycache__')
+	
+if __name__ == '__main__':
+	crawl_infoCard_data()

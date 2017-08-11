@@ -4,6 +4,7 @@ import psycopg2
 import pickle
 import json
 from multiprocessing import Pool
+import os
 
 import time
 
@@ -156,6 +157,10 @@ def saveProgress():
 	
 	print('Saving progress...')
 	
+	# If the pin_data directory doesn't exist, make it
+	if not os.path.exists('infoCard_data'):
+		os.makedirs('infoCard_data')
+	
 	with open('infoCard_data/crawled_ids.pickle', 'wb') as f1:
 		pickle.dump(crawled_ids, f1)
 	with open('infoCard_data/ids_to_crawl.pickle', 'wb') as f2:
@@ -185,7 +190,7 @@ def update_ids_to_crawl(cur):
 	
 	print('Updating ids_to_crawl using garrett_apartments_pin_data...')
 	ids = set()
-	query = 'SELECT id FROM garrett_apartments_pin_data'
+	query = 'SELECT id FROM apartments_pin_data'
 	cur.execute(query)
 	raw_ids = cur.fetchall() # Returns a list of the form[('7charid',), ('7charid',), ...]
 	for id in raw_ids:
@@ -200,9 +205,9 @@ def update_crawled_ids(cur):
 	global crawled_ids
 	global ids_to_crawl
 	
-	print('Updating crawled_ids using garrett_apartments_infoCard_data. This may take a second...')
+	print('Updating crawled_ids using apartments_infoCard_data. This may take a second...')
 	ids = set()
-	query = 'SELECT Listing_ListingKey FROM garrett_apartments_infoCard_data'
+	query = 'SELECT Listing_ListingKey FROM apartments_infoCard_data'
 	cur.execute(query)
 	raw_ids = cur.fetchall() # Returns a list of the form[('7charid',), ('7charid',), ...]
 	for id in raw_ids:
@@ -233,7 +238,7 @@ def crawl(id):
 	features = info.parseInfo(infoJSON) # The info is parsed within the infoCard api wrapper
 	
 	# Insert into table 89 values
-	query = 'INSERT INTO garrett_apartments_infoCard_data VALUES (%s' + (', %s'*88) + ')'
+	query = 'INSERT INTO apartments_infoCard_data VALUES (%s' + (', %s'*88) + ')'
 	cur.execute(query, features)
 	
 	conn.commit()
@@ -273,11 +278,8 @@ def go(numThreads, batchSize):
 		except:
 			print("Error crawling last few ids")
 
-def goWrapper(tableName, numThreads = 42, batchSize = 10000):
+def goWrapper(numThreads = 42, batchSize = 10000):
 	'''Wrapper to restart on error crash. Not very elegant.'''
-	global insert_query
-	insert_query.format(tableName)
-	
 	
 	try:
 		go(numThreads, batchSize)
@@ -290,6 +292,6 @@ def goWrapper(tableName, numThreads = 42, batchSize = 10000):
 		conn.close()
 		goWrapper(numThreads, batchSize)
 
-if __name__ == '__main__':
+#if __name__ == '__main__':
 	#goWrapper(tableName)
 	#time.time()
