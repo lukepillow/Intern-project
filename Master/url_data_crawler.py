@@ -5,6 +5,7 @@ import re
 import demjson
 import pickle
 import os
+import logging
 
 from multiprocessing import Pool
 
@@ -19,6 +20,7 @@ crawled_urls = set()
 def loadProgress():
 	'''Loads the current progress from pickled data.'''
 	print('Loading previous progress...')
+	logging.info('Page Crawler is loading previous progress...')
 
 	global crawled_urls
 	global urls_to_crawl
@@ -32,6 +34,7 @@ def loadProgress():
 			urls_to_crawl.remove(url)
 	
 	print('Done loading crawl progress!')
+	logging.info('Page Crawler is done loading previous progress!')
 
 def saveProgress():
 	'''Saves the current progress to pickled data.'''
@@ -39,6 +42,7 @@ def saveProgress():
 	global urls_to_crawl
 	
 	print('Saving progress...')
+	logging.info('Page Crawler is saving progress...')
 	
 	# If the page_data directory doesn't exist, make it
 	if not os.path.exists('page_data'):
@@ -50,6 +54,7 @@ def saveProgress():
 		pickle.dump(urls_to_crawl, f2)
 	
 	print('Done saving progress!')
+	logging.info('Page Crawler is done saving progress!')
 
 #TODO
 def updateFromDatabase():
@@ -211,6 +216,7 @@ def create_table():
     conn.commit()
     cur.close()
     conn.close()
+	logging.info("Table created for url_data_crawler.")
 
 def getResponse(url):
 	'''Takes a url and returns a response object.'''
@@ -355,6 +361,7 @@ def crawl(url):
 def go(numThreads, batchSize):
 	'''Runs the crawler. Cant quite be gracefully stopped yet.'''
 	# Crawl in batches of batchSize
+	logging.info("Now crawling the pages from the urls.")
 	global urls_to_crawl
 	global crawled_urls
 	while len(urls_to_crawl) >= batchSize:
@@ -366,6 +373,7 @@ def go(numThreads, batchSize):
 			crawled_urls.add(url)
 		urls_to_crawl = urls_to_crawl[batchSize:]
 		print(str(len(crawled_urls)) + " crawled so far.")
+		logging.info(str(len(crawled_urls)) + " crawled so far.")
 
 	# If any urls remain, crawl them.
 	if len(urls_to_crawl) < batchSize:
@@ -380,8 +388,8 @@ def go(numThreads, batchSize):
 		except:
 			print("Error crawling last few urls")
 
-if __name__ == '__main__':
+#if __name__ == '__main__':
 	#updateFromDatabase()
-	loadProgress()
+	#loadProgress()
 	#go(20, 2000)
 	

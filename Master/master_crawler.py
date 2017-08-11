@@ -68,10 +68,10 @@ def crawl_infoCard_data():
 	
 	# Compare tables to find which ids to crawl
 	# This is currently redundant, as it already does this
-	conn, cur = login_to_database()
-	infoCard_crawler.updateFromDatabase(conn)
-	cur.close()
-	conn.close()
+	#conn, cur = login_to_database()
+	#infoCard_crawler.updateFromDatabase(conn)
+	#cur.close()
+	#conn.close()
 	
 	# Crawl it all
 	infoCard_crawler.goWrapper(numThreads = 20)
