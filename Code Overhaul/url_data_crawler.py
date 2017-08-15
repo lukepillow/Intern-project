@@ -96,10 +96,13 @@ def login_to_database():
 	'''Wrapper for connect_postgresql() that uses credentials stored in "credentials.py"'''
 	#try:
 	import credentials
-	conn, cur = connect_postgresql(host=credentials.host, user=credentials.user, password=credentials.password)
+	try:
+		conn, cur = connect_postgresql(host=credentials.host, user=credentials.user, password=credentials.password)
+	except:
+		print('Retrying connection...')
+		time.sleep(1)
+		conn, cur = connect_postgresql(host=credentials.host, user=credentials.user, password=credentials.password)
 	return conn, cur
-	#except:
-		#print("Error reading credentials.py and connecting to server. Do you have credentials.py in the same directory?")
 	
 def connect_postgresql(
                        host='',
