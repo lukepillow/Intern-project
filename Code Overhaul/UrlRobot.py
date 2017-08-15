@@ -71,11 +71,11 @@ def main():
 
 
 def crawl_apartments():
-	'''Returns a set containing all the links under the apartments.com robot.txt.'''
+	'''Returns a set containing all the links under the apartments.com robots.txt.'''
 	return getUrls('https://www.apartments.com/sitemap_AllProfiles.xml.gz')
 
 def crawl_booking():
-	'''Returns a set containing all the links under the booking.com robot.txt.'''
+	'''Returns a set containing all the links under the booking.com robots.txt.'''
 	results = set()
 	with open(getFile('https://www.booking.com/sitembk-index-https.xml'), 'rb') as f:
 		soup = BeautifulSoup(f.read(), 'xml')
@@ -85,7 +85,14 @@ def crawl_booking():
 			results = results | getUrls(sitemap_url)
 	
 	return results
-			
+
+
+def crawl_airbnb():
+	'''Returns a set containing all the links under the airbnb.com robots.txt.'''
+	return -1
+
+
+
 
 
 
