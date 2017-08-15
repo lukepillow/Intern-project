@@ -6,6 +6,7 @@ import demjson
 import pickle
 import os
 import logging
+import shutil
 
 from multiprocessing import Pool
 
@@ -62,44 +63,23 @@ def updateFromDatabase():
 	loadProgress()
 
 	conn, cur = login_to_database()
-	update_urls_to_crawl(cur)
 	update_crawled_urls(cur)
 	cur.close()
 	conn.close()
 	
 	saveProgress()
 
-def update_urls_to_crawl(cur):
-	'''Updates from the infoCard_data to get new urls to crawl.'''
-	global crawled_urls
-	global urls_to_crawl
-	
-	print('Updating urls_to_crawl using apartments_infoCard_data...')
-	urls = set()
-	
-	#temp
-	#query = 'SELECT PropertyUrl FROM apartments_infoCard_data'
-	query = 'SELECT PropertyUrl FROM garrett_infoCard_test'
-	
-	cur.execute(query)
-	raw_urls = cur.fetchall() # Returns a list of the form[('url',), ('url',), ...]
-	for url in raw_urls:
-		urls.add(url[0])
-	
-	urls = urls - crawled_urls # Remove any crawled_urls
-	urls_to_crawl = list(set(urls_to_crawl) | urls) # Add any new urls to the list
-	print('Done updating urls_to_crawl.')
 
 #TODO
 def update_crawled_urls(cur):
-	'''Updates from the ___ db to get already crawled urls.'''
+	'''Updates from the apartments_page_data db to get already crawled urls.'''
 	global crawled_urls
 	global urls_to_crawl
 	
 	#temp
 	table_name = 'apartments_page_data'
 	
-	print('Updating crawled_urls using' +table_name+ '. This may take a second...')
+	print('Updating crawled_urls using ' +table_name+ '. This may take a second...')
 	urls = set()
 	query = 'SELECT url FROM apartments_page_data'
 	cur.execute(query)
@@ -107,45 +87,10 @@ def update_crawled_urls(cur):
 	for url in raw_urls:
 		urls.add(url[0])
 	
-	crawled_urls = crawled_urls | urls 						# Update the list of crawled_urls
+	crawled_urls = urls										# Update the list of crawled_urls
 	urls_to_crawl = list(set(urls_to_crawl) - crawled_urls)	# Remove any crawled_urls from urls_to_crawl
 	print('Done updating crawled_urls.')
 
-
-# Regular expressions used to correct the response to json
-#	Catches words
-correction1 = re.compile("\'(((\w)*\s)*)(\w)*\'")
-#	Catches phone numbers
-correction2 = re.compile("\'((\d)*(\-))*(\d)*\'")
-#	Catches the listing description
-correction3 = re.compile("listingDescription:(.)*\n")
-#	Catches all the values without quotes
-correction4 = re.compile("(\s|\t)(([a-z]|[A-Z])+):\s")
-
-def correctionFunction1(matchObject):
-	'''Corrects quotes on words and phone numbers.'''
-	return '"' + matchObject[0][1:-1] + '"'
-
-def correctionFunction2(matchObject):
-	'''Corrects quotes on the "listingDescription"'''
-	return 'listingDescription: "' + matchObject[0][21:-4] + '",\r\n'
-	
-def correctionFunction3(matchObject):
-	'''Corrects quotes on the json's keys.'''
-	return ' "' + matchObject[0][1:-2] + '": '
-
-# I wrote all this before finding that demjson can read it just fine -_-
-def correctJSON(badJSON):
-	'''Corrects the JSON response to be parsable with json.loads().'''
-	# Correct the data to conform to JSON standards
-	# (Fix single quotes to double quotes)
-	badJSON = correction1.sub(correctionFunction1, badJSON)
-	badJSON = correction2.sub(correctionFunction1, badJSON)
-	badJSON = correction3.sub(correctionFunction2, badJSON)
-	badJSON = correction4.sub(correctionFunction3, badJSON)
-	badJSON = badJSON.replace('seoGeographyCriteria:', '"seoGeographyCriteria": ')
-	return json.loads(badJSON)
-	
 def login_to_database():
 	'''Wrapper for connect_postgresql() that uses credentials stored in "credentials.py"'''
 	try:
@@ -388,7 +333,51 @@ def go(numThreads, batchSize):
 		except:
 			print("Error crawling last few urls")
 
-#if __name__ == '__main__':
-	#updateFromDatabase()
-	#loadProgress()
-	#go(20, 2000)
+			
+def doesTableExist(tableName):
+	'''Returns True if table exists and false if it doesn't.'''
+	query = "SELECT '{0}'::regclass".format(tableName)
+	conn, cur = login_to_database()
+	
+	try:
+		cur.execute(query)
+		return True
+	except psycopg2.ProgrammingError as e:
+		return False			
+			
+def goWrapper():
+	try:
+		go(12, 1000)
+	except Exception as e:
+		print(e)
+		updateFromDatabase()
+		goWrapper()
+			
+			
+def main():
+	# Check to see if table exists
+	# Otherwise make the table
+	#page_table = 'apartments_page_data'
+	#if not doesTableExist(infoCard_table):
+	#	print("Making new page data table with name: " + page_table)
+	#	conn, cur = login_to_database()
+	#	create_table(conn, page_table)
+	#	cur.close()
+	#	conn.close()
+	
+	# Figure out what urls to crawl
+	#import url_scrape
+	#global urls_to_crawl
+	#urls_to_crawl = list(url_scrape.crawl_apartments())
+	
+	# Reconcile the new list with already crawled urls.
+	updateFromDatabase()
+	
+
+	# Crawl it all
+	goWrapper()
+
+
+
+if __name__ == '__main__':
+	main()
