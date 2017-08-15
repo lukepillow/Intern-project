@@ -7,6 +7,7 @@ import pickle
 import os
 import logging
 import shutil
+import time
 
 from multiprocessing import Pool
 
@@ -93,12 +94,12 @@ def update_crawled_urls(cur):
 
 def login_to_database():
 	'''Wrapper for connect_postgresql() that uses credentials stored in "credentials.py"'''
-	try:
-		import credentials
-		conn, cur = connect_postgresql(host=credentials.host, user=credentials.user, password=credentials.password)
-		return conn, cur
-	except:
-		print("Error reading credentials.py and connecting to server. Do you have credentials.py in the same directory?")
+	#try:
+	import credentials
+	conn, cur = connect_postgresql(host=credentials.host, user=credentials.user, password=credentials.password)
+	return conn, cur
+	#except:
+		#print("Error reading credentials.py and connecting to server. Do you have credentials.py in the same directory?")
 	
 def connect_postgresql(
                        host='',
@@ -165,7 +166,11 @@ def create_table():
 
 def getResponse(url):
 	'''Takes a url and returns a response object.'''
-	response = requests.get(url)
+	try:
+		response = requests.get(url)
+	except:									# This retries the url ONCE
+		time.sleep(1)
+		response = requests.get(url)
 	if not response.status_code == 200:
 		if response.status_code == 404: 	# This occurs when the listing is no longer on the site and the url gets redirected
 			return
