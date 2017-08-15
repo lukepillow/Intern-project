@@ -347,7 +347,7 @@ def doesTableExist(tableName):
 			
 def goWrapper():
 	try:
-		go(12, 1000)
+		go(24, 1000)
 	except Exception as e:
 		print(e)
 		updateFromDatabase()
