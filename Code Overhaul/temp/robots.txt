@@ -1,0 +1,22 @@
+# Ensure this file is always saved using UTF-8 WITHOUT SIGNATURE- no BOM 
+# otherwise Google will say it detects an error with line one of the file.
+
+User-agent: *
+Disallow: /hotels/
+
+Sitemap: https://www.apartments.com/sitemap_AllProfiles.xml.gz
+Sitemap: https://www.apartments.com/sitemap_AllProfiles_es.xml.gz
+Sitemap: https://www.apartments.com/sitemap_AllCitySearches.xml.gz
+Sitemap: https://www.apartments.com/sitemap_AllNeighborhoodSearches.xml.gz
+Sitemap: https://www.apartments.com/sitemap_AllPopularSearches.xml.gz
+Sitemap: https://www.apartments.com/sitemap_AllZipCodeSearches.xml.gz
+Sitemap: https://www.apartments.com/sitemap_AllStateSearches.xml.gz
+Sitemap: https://www.apartments.com/sitemap_AllNearbyAirports.xml.gz
+Sitemap: https://www.apartments.com/sitemap_AllNearbyMetroStops.xml.gz
+Sitemap: https://www.apartments.com/sitemap_AllNearbyShoppingCenters.xml.gz
+Sitemap: https://www.apartments.com/sitemap_AllReviews.xml.gz
+Sitemap: https://www.apartments.com/sitemap_AllColleges.xml.gz
+Sitemap: https://www.apartments.com/sitemap_AllNearbyMilitaryBases.xml.gz
+Sitemap: https://www.apartments.com/sitemap_AllCountySearches.xml.gz
+Sitemap: https://www.apartments.com/sitemap_AllParksAndRec.xml.gz
+Sitemap: https://www.apartments.com/sitemap_AllSchools.xml.gz
