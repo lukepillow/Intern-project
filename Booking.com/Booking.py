@@ -59,8 +59,17 @@ def getFeatures(url):
 		review_sub_score_breakdown.append('('+sub_score_name+'): ' + sub_score_value)
 	
 	
-	
-	
+	recent_reviews = []
+	for review in soup.find(class_="review_list hp_recent_property_reviews_container").find_all(class_="review_item clearfix "):
+		review_date = review.find(class_="review_item_date").text.strip()
+		review_name = review.find(class_="review_item_reviewer").h4.text.strip()
+		
+		review_title = review.find(class_="review_item_header_content recent_property_review_title").text.strip()
+		review_score = review.find(class_="review-score-badge").text.strip()
+		review_tags = [tag.text.strip()[2:] for tag in review.find(class_="review_item_info_tags").find_all(class_="review_info_tag")]
+		#^Removes the bullet points
+		review_text_negative = review.find(class_="review_neg").text.strip()[1:]
+		review_text_positive = review.find(class_="review_pos").text.strip()[1:]
 			
 	return (title, description, facilities_list, review_score_breakdown, review_sub_score_breakdown)
 	
