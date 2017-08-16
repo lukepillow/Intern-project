@@ -18,7 +18,6 @@ def getFile(url):
 		
 	return filename
 
-		
 def decompress(filename):
 	if (filename[-3:] != '.gz'):
 		print('This is not a gz file.')
@@ -30,7 +29,6 @@ def decompress(filename):
 		f.write(data)
 	
 	return filename[:-3] # This is the filename without the .gz
-		
 
 def getSoup(url):
 	
@@ -46,7 +44,8 @@ def getData(url):
 	
 	if soup.contents[0].name == 'sitemapindex':
 		for sitemap in soup.find_all('sitemap'):
-			results = results | getData(sitemap.find('loc').text)
+			if not 'main1' in sitemap.find('loc').text: # Excludes general urls from the search
+				results = results | getData(sitemap.find('loc').text)
 	elif soup.contents[0].name == 'urlset':
 		for listing in soup.find_all('url'):
 			url = listing.find('loc').text
@@ -61,7 +60,11 @@ def getData(url):
 	
 	return results
 
-	
+def crawl_airbnb():
+	'''Returns a set containing all links under the airbnb.com robots.txt in data tuples.'''
+	results = getData('https://www.airbnb.com/sitemap-main-index.xml.gz')
+	#results = getData('https://www.airbnb.com/sitemap-p382.xml.gz')
+	return results
 	
 	
 def main():
@@ -84,7 +87,7 @@ def login_to_database():
 		time.sleep(1)
 		conn, cur = connect_postgresql(host=credentials.host, user=credentials.user, password=credentials.password)
 	return conn, cur
-	
+
 def connect_postgresql(
                        host='',
                        user='',
@@ -98,13 +101,6 @@ def connect_postgresql(
         return conn,cur
     except Exception as e:
         print("Unable to connect to the database Error is ",e)
-	
-def crawl_airbnb():
-	'''Returns a set containing all links under the airbnb.com robots.txt in data tuples.'''
-	results = getData('https://www.airbnb.com/sitemap-main-index.xml.gz')
-	#results = getData('https://www.airbnb.com/sitemap-p382.xml.gz')
-	return results
-
 
 def makeTable(cur, table_name):
 	
@@ -114,8 +110,6 @@ def makeTable(cur, table_name):
 	id INTEGER UNIQUE NOT NULL,
 	date TIMESTAMP WITH TIME ZONE);"""
 	cur.execute(query)
-
-
 
 def insert_into_table(batch_size=200):
 	active_urls = load()
@@ -142,13 +136,6 @@ def save(data):
 def load():
 	with open('data.pickle', 'rb') as f:
 		return pickle.load(f)
-	
-
-
-
-
-
-
 
 
 
