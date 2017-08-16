@@ -3,12 +3,8 @@ import gzip
 from bs4 import BeautifulSoup
 import time
 import psycopg2
-
-robotUrl = "https://www.apartments.com/robots.txt"
-
-
-#bookUrl = "https://www.booking.com/hotel/py/dazzler-asuncion.en-gb.html?label=gen173nr-1DCAsovQFCEGNhc2EtZGVsLWNvY29udXRICWIFbm9yZWZyBXVzX2NhiAEBmAEuuAEHyAEM2AED6AEB-AECkgIBeagCAw;sid=75f9e88a9dcb4b0a176e3afdbc3a47fb;all_sr_blocks=166612103_89736821_2_1_0;checkin=2017-08-14;checkout=2017-08-15;dest_id=-910015;dest_type=city;dist=0;group_adults=2;highlighted_blocks=166612103_89736821_2_1_0;hpos=2;room1=A%2CA;sb_price_type=total;srfid=58cc57e6d21a46b5dcfda56d0353bc275265bd3bX2;srpvid=eca9841c582e00ee;type=total;ucfs=1&#hotelTmpl"
-
+import psycopg2.extras
+import pickle
 
 
 
@@ -73,18 +69,8 @@ def main():
 	table_name = 'bnb_active_ids'
 	
 	active_urls = list(crawl_airbnb())
+	save(active_urls)
 	
-	query = 'INSERT INTO ' + table_name + ' VALUES (%s, %s, %s)'
-	conn, cur = login_to_database()
-	while len(active_urls) < 10000:
-		print(str(len(active_urls))+ ' urls left to insert.')
-		cur.executemany(query, active_urls[:10000])
-		active_urls = active_urls[10000:]
-		conn.commit()
-	
-	cur.executemany(query, active_urls)
-	conn.commit()
-	conn.close()
 	
 	
 def login_to_database():
@@ -115,19 +101,59 @@ def connect_postgresql(
 	
 def crawl_airbnb():
 	'''Returns a set containing all links under the airbnb.com robots.txt in data tuples.'''
-	#results = getData('https://www.airbnb.com/sitemap-main-index.xml.gz')
-	results = getData('https://www.airbnb.com/sitemap-p382.xml.gz')
+	results = getData('https://www.airbnb.com/sitemap-main-index.xml.gz')
+	#results = getData('https://www.airbnb.com/sitemap-p382.xml.gz')
 	return results
 
 
 def makeTable(cur, table_name):
+	
+	table_name = 'bnb_active_ids'
 	query = """CREATE TABLE """ + table_name + """ (
 	url TEXT UNIQUE NOT NULL,
 	id INTEGER UNIQUE NOT NULL,
 	date TIMESTAMP WITH TIME ZONE);"""
 	cur.execute(query)
 
+
+
+def insert_into_table(batch_size=200):
+	active_urls = load()
+	query = 'INSERT INTO bnb_active_ids VALUES (%s, %s, %s)'
+	conn, cur = login_to_database()
+	while len(active_urls) > 10000:
+		print(str(len(active_urls))+ ' urls left to insert.')
+		psycopg2.extras.execute_batch(cur, query, active_urls[:10000], page_size=batch_size)
+		active_urls = active_urls[10000:]
+		conn.commit()
+	
+	psycopg2.extras.execute_batch(cur, query, active_urls, page_size=batch_size)
+	conn.commit()
+	cur.close()
+	conn.close()
+
+def insert_wrapper():
+	return -1
+
+def save(data):
+	with open('data.pickle', 'wb') as f:
+		pickle.dump(data, f)
+
+def load():
+	with open('data.pickle', 'rb') as f:
+		return pickle.load(f)
+	
+
+
+
+
+
+
+
+
+
+
+
 if __name__ == '__main__':
 	#main()
 	pass
-		
