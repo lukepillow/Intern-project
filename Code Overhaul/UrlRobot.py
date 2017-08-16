@@ -87,9 +87,6 @@ def crawl_booking():
 	return results
 
 
-def crawl_airbnb():
-	'''Returns a set containing all the links under the airbnb.com robots.txt.'''
-	return -1
 
 
 
