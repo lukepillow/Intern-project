@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 
 
 def getSoup(url):
+	'''Returns a soup of the given url.'''
 	req = requests.get(url)
 	soup = BeautifulSoup(req.text, 'html5lib')
 	return soup
