@@ -58,6 +58,20 @@ def getFeatures(url):
 		sub_score_name = sub_score.find(class_="review_score_name").text
 		sub_score_value = sub_score.find(class_="review_score_value").text
 		review_sub_score_breakdown.append('('+sub_score_name+'): ' + sub_score_value)
+        #picture url
+        x=soup.find_all('script')[2].text
+        pat_1 = re.compile(r'hotelPhotos: \[(.*?)\]')
+        pat_2 = re.compile(r'\{.*?\}')
+        y = pat_1.findall(x.replace('\n',''))[0]
+        picurl = []
+        for i in pat_2.findall(y):
+                exec('picurl.append({})'.format(re.sub(r'([^\{,]*?):[^/]',r"'\1':",i)))
+
+        #room types
+        listroom=soup.find(id="maxotel_rooms").find_all(class_="rt-bed-type")
+        room_types=[]
+        for i in range(len(listroom)):
+                room_types.append(listroom[i].text.strip())
 	
 	
 	#recent_reviews = []
