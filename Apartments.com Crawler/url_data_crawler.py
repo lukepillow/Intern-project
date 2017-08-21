@@ -26,10 +26,18 @@ def loadProgress():
 
 	global crawled_urls
 	global urls_to_crawl
-	with open('page_data/crawled_urls.pickle', 'rb') as f1:
-		crawled_urls = crawled_urls | pickle.load(f1)
-	with open('page_data/urls_to_crawl.pickle', 'rb') as f2:
-		urls_to_crawl = list(set(urls_to_crawl) | set(pickle.load(f2)))
+	
+	try:
+		with open('page_data/crawled_urls.pickle', 'rb') as f1:
+			crawled_urls = crawled_urls | pickle.load(f1)
+		with open('page_data/urls_to_crawl.pickle', 'rb') as f2:
+			urls_to_crawl = list(set(urls_to_crawl) | set(pickle.load(f2)))
+	
+	except:
+		print('Error loading previous progress from page_data folder.')
+		logging.warning('Error loading previous progress from page_data folder.')
+		return
+	
 	
 	for url in urls_to_crawl:
 		if url in crawled_urls:
@@ -58,7 +66,6 @@ def saveProgress():
 	print('Done saving progress!')
 	logging.info('Page Crawler is done saving progress!')
 
-#TODO
 def updateFromDatabase():
 
 	loadProgress()
@@ -71,7 +78,6 @@ def updateFromDatabase():
 	saveProgress()
 
 
-#TODO
 def update_crawled_urls(cur):
 	'''Updates from the apartments_page_data db to get already crawled urls.'''
 	global crawled_urls
@@ -341,9 +347,32 @@ def go(numThreads, batchSize):
 		except:
 			print("Error crawling last few urls")
 
+def go2(numThreads, batchSize):
+	'''Runs the crawler. Cant quite be gracefully stopped yet.'''
+	# Crawl in batches of batchSize
+	logging.info("Now crawling the pages from the urls.")
+	global urls_to_crawl
+	global crawled_urls
+	if len(urls_to_crawl) >= batchSize:
+		batch = urls_to_crawl[:batchSize]
+	else:
+		batch = urls_to_crawl
+		
+	with Pool(processes=numThreads) as pool:
+		pool.map(crawl, batch)
+		
+	for url in batch:
+		crawled_urls.add(url)
+		urls_to_crawl.remove(url)
+	
+	print(str(len(crawled_urls)) + " crawled so far.")
+	logging.info(str(len(crawled_urls)) + " crawled so far.")
+	
+	go2(numThreads, batchSize)
+	
 			
 def doesTableExist(tableName):
-	'''Returns True if table exists and false if it doesn't.'''
+	'''Returns True if table exists and False if it doesn't.'''
 	query = "SELECT '{0}'::regclass".format(tableName)
 	conn, cur = login_to_database()
 	
