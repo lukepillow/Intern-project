@@ -2,15 +2,6 @@ import requests
 import gzip
 from bs4 import BeautifulSoup
 
-
-robotUrl = "https://www.apartments.com/robots.txt"
-
-
-#bookUrl = "https://www.booking.com/hotel/py/dazzler-asuncion.en-gb.html?label=gen173nr-1DCAsovQFCEGNhc2EtZGVsLWNvY29udXRICWIFbm9yZWZyBXVzX2NhiAEBmAEuuAEHyAEM2AED6AEB-AECkgIBeagCAw;sid=75f9e88a9dcb4b0a176e3afdbc3a47fb;all_sr_blocks=166612103_89736821_2_1_0;checkin=2017-08-14;checkout=2017-08-15;dest_id=-910015;dest_type=city;dist=0;group_adults=2;highlighted_blocks=166612103_89736821_2_1_0;hpos=2;room1=A%2CA;sb_price_type=total;srfid=58cc57e6d21a46b5dcfda56d0353bc275265bd3bX2;srpvid=eca9841c582e00ee;type=total;ucfs=1&#hotelTmpl"
-
-
-
-
 def getFile(url):
 	
 	response = requests.get(url)
@@ -60,20 +51,6 @@ def getUrls(url):
 	
 	return results
 
-results = set()
-def main():
-	# First download the robots.txt and get all profiles
-	# TODO
-	#global results
-	#results = crawl_apartments()
-	pass
-
-
-
-def crawl_apartments():
-	'''Returns a set containing all the links under the apartments.com robots.txt.'''
-	return getUrls('https://www.apartments.com/sitemap_AllProfiles.xml.gz')
-
 def crawl_booking():
 	'''Returns a set containing all the links under the booking.com robots.txt.'''
 	results = set()
@@ -85,7 +62,3 @@ def crawl_booking():
 			results = results | getUrls(sitemap_url)
 	
 	return results
-
-if __name__ == '__main__':
-	#main()
-	pass
