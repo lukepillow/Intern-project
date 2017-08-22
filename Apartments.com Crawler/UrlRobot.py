@@ -86,13 +86,6 @@ def crawl_booking():
 	
 	return results
 
-
-
-
-
-
-
-
 if __name__ == '__main__':
 	#main()
 	pass
