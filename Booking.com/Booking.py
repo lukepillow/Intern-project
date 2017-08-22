@@ -73,7 +73,6 @@ def getFeatures(url):
 			
 	return (title, description, facilities_list, review_score_breakdown, review_sub_score_breakdown)
 
-
 def getReviewsRequest(url, offset=0):
 	'''Returns a request object for the first 100 reviews after the offset.'''
 	# Uses the booking.com reviewlist api
