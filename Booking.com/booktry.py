@@ -1,8 +1,22 @@
 import requests
 import demjson
+import time
+import psycopg2
+import re
+import json
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse, parse_qs
 
+def find_match_parentheses(s):
+		counts = 0
+		for i in range(len(s)):
+			if s[i] == '[':
+				counts += 1
+			if s[i] == ']':
+				counts -= 1
+				if counts == 0:
+					return i+1
+		return None
 
 def getResponse(url):
 	'''Takes a url and returns a response object.'''
@@ -21,25 +35,31 @@ def getResponse(url):
 	else:
 		return response
 
-def getSoup(url):
-	'''Returns a soup of the given url.'''
-	req = requests.get(url)
-	soup = BeautifulSoup(req.text, 'lxml')
+def getSoup(response):
+	'''Returns a soup of the given requests.Response object.'''
+	soup = BeautifulSoup(response.text, 'lxml')
 	return soup
 
-def getFeatures(url):
-	
-	soup = getSoup(url)
-	
-	#
-	title = soup.title.text
+def getFeatures(response):
+	url = response.url
+
+	soup = getSoup(response)
 	
 	#
+	#try:
+	title = soup.title.text.strip()
+	#except:
+	#title=' '
+
+	#
+	#try:
 	description = soup.find(class_='hp_desc_main_content').text.strip()
 	description_marker = -(description[::-1].find("What would you like to know?"[::-1])+len("What would you like to know?"))
 	description = description[:description_marker].strip()								# Cuts off the extra added at the tail
-	
+	#except:
+	#description=' '
 	#
+	#try:
 	facilities_list = []
 	facilities_sections = soup.find_all(class_='facilitiesChecklist')[-1]
 	for section in facilities_sections.find_all(class_='facilitiesChecklistSection'):
@@ -57,7 +77,7 @@ def getFeatures(url):
 	priceRange_text = first_json['priceRange']
 	url_again = first_json['url']
 	address_json = first_json['address']
-	rating_json = first_json['aggregateRating']
+	rating_json = first_json.get('aggregateRating') ##return none
 
 	# Breakdown address_json into details
 	ad_type=address_json['@type']
@@ -65,13 +85,17 @@ def getFeatures(url):
 	ad_locality=address_json['addressLocality']
 	ad_region=address_json['addressRegion']
 	ad_postalcode=address_json['postalCode']
-	ad_streetadress=address_json['street']
+	ad_streetadress=address_json['streetAddress']
 
 	# Breakdown rating_json into details
-	best_rating=str(rating_json['bestRating'])
-	rating_value=str(rating_json['ratingValue'])
-	reviewCounts=str(rating_json['reviewCount'])
-	
+	if rating_json:
+		best_rating=rating_json['bestRating']*10
+		rating_value=rating_json['ratingValue']*10
+		reviewCounts=rating_json['reviewCount']
+	else:
+		best_rating=None
+		rating_value=None
+		reviewCounts=None
 	#lat/lng
 	lat_lng=parse_qs(urlparse(hotelmap).query)['center'][0].split(',')
 	lat=lat_lng[0]
@@ -79,32 +103,43 @@ def getFeatures(url):
 
 	# score breakdown
 	review_score_breakdown = {}
-	for score_range in soup.find(id="review_list_score_distribution").find_all(class_="clearfix one_col"):
-		score_range_name = score_range.find(class_="review_score_name").text.strip()
-		score_range_value = score_range.find(class_="review_score_value").text
-		review_score_breakdown.append({score_range_name:score_range_value})
-		
+	review_score_distribution=soup.find(id="review_list_score_distribution")
+	if review_score_distribution:
+		for score_range in review_score_distribution.find_all(class_="clearfix one_col"):
+			score_range_name = score_range.find(class_="review_score_name").text.strip()
+			score_range_value = score_range.find(class_="review_score_value").text
+			review_score_breakdown[score_range_name] = score_range_value
+		review_score_breakdown=json.dumps(review_score_breakdown)
+	else:
+		review_score_breakdown=None
+
 	review_sub_score_breakdown = {}
-	for sub_score in soup.find(id="review_list_score_breakdown").find_all(class_="clearfix one_col"):
-		sub_score_name = sub_score.find(class_="review_score_name").text
-		sub_score_value = sub_score.find(class_="review_score_value").text
-		review_sub_score_breakdown.append({sub_score_name:sub_score_value})
-	
+	review_breakdown=soup.find(id="review_list_score_breakdown")
+	if review_breakdown:
+		for sub_score in review_breakdown.find_all(class_="clearfix one_col"):
+			sub_score_name = sub_score.find(class_="review_score_name").text
+			sub_score_value = sub_score.find(class_="review_score_value").text
+			review_sub_score_breakdown[sub_score_name] = sub_score_value
+		review_sub_score_breakdown=json.dumps(review_sub_score_breakdown)
+	else:
+		review_sub_score_breakdown=None
 
-		#picture url
+	#picture url
 	x=soup.find_all('script')[2].text
-	pat_1 = re.compile(r'hotelPhotos: \[(.*?)\]')
-	pat_2 = re.compile(r'\{.*?\}')
-	y = pat_1.findall(x.replace('\n',''))[0]
-	picurl = []
-	for i in pat_2.findall(y):
-		exec('picurl.append({})'.format(re.sub(r'([^\{,]*?):[^/]',r"'\1':",i)))
+	x = x.replace('\n','')
+	idx = x.find('hotelPhotos')
+	substring = x[idx+13:]
+	catched = substring[:find_match_parentheses(substring)]
+	temp = re.sub(r'([^\{,]*?):[^/]',r'"\1":',catched.replace('"',"quote_place_holder").replace("'",'"').replace("quote_place_holder","'"))
+	picurl = json.loads(temp)
 
-		#room types
-	listroom=soup.find(id="maxotel_rooms").find_all(class_="rt-bed-type")
+	#room types
 	room_types=[]
-	for i in range(len(listroom)):
-		room_types.append(listroom[i].text.strip())
+	for room_tag in soup.find(id='maxotel_rooms').find_all(class_='room-info'):
+		room_title = room_tag.find('a').text.strip()
+		room_text = ' '.join(room_tag.text.strip().replace('\n', ' ').split())
+		room_text = room_text[len(room_title)+1:]
+		room_types.append((room_title, room_text))
 	
 	
 	#recent_reviews = []
@@ -117,11 +152,10 @@ def getFeatures(url):
 	#	#^Removes the bullet points
 	#	review_text_negative = review.find(class_="review_neg").text.strip()[1:]
 	#	review_text_positive = review.find(class_="review_pos").text.strip()[1:]
-
 	return(url,title,description,json.dumps(facilities_list),hotelmap,hoteltype,hotelname,description_mini,
 			   priceRange_text, url_again, ad_type, ad_country, ad_locality, ad_region, ad_postalcode, ad_streetadress,
-			   best_rating, rating_value, reviewCounts, lat, lng, json.dumps(review_score_breakdown),
-			   json.dumps(review_sub_score_breakdown), json.dumps(picurl), json.dumps(room_types))
+			   best_rating, rating_value, reviewCounts, lat, lng, review_score_breakdown,
+			   review_sub_score_breakdown, json.dumps(picurl), json.dumps(room_types))
 
 def login_to_database():
 	'''Wrapper for connect_postgresql() that uses credentials stored in "credentials.py"'''
@@ -200,9 +234,9 @@ def book_crawl(url):
 	elif not response.url == url:
 		return
 
-		data=getFeatures(url)
-		conn, cur = login_to_database()
-	query = 'INSERT INTO apartments_page_data VALUES (%s' + (', %s'*25) + ')'	# 26 total values to insert
+	data=getFeatures(response)
+	conn, cur = login_to_database()
+	query = 'INSERT INTO book_data VALUES (%s' + (', %s'*25) + ')'	# 25 total values to insert
 	cur.execute(query, data)
 	conn.commit()
 	cur.close()
@@ -239,4 +273,5 @@ def getCountryCode(url):
 
 
 if __name__ == '__main__':
-	main()
+	#main()
+	pass
