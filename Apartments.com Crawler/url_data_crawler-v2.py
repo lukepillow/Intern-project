@@ -339,10 +339,12 @@ def go(numThreads, batchSize):
 	# Crawl in batches of batchSize
 	global urls_to_crawl
 	global crawled_urls
+	done = False
 	if len(urls_to_crawl) >= batchSize:
 		batch = urls_to_crawl[:batchSize]
 	else:
 		batch = urls_to_crawl
+		done = True
 	
 	# Using a pool, asynchronously map threads to scrape all the urls.
 	with Pool(processes=numThreads) as pool:
@@ -364,7 +366,10 @@ def go(numThreads, batchSize):
 	print("\n"+str(len(crawled_urls)) + " crawled so far.")
 	logging.info(str(len(crawled_urls)) + " crawled so far.")
 	
-	go(numThreads, batchSize)
+	if done:
+		return
+	else:
+		go(numThreads, batchSize)
 	
 			
 def doesTableExist(tableName):
@@ -382,7 +387,7 @@ def goWrapper():
 	'''A wrapper for go that reupdates if go crashes.
 	It revalidates with the database to avoid recrawling any ids.'''
 	try:
-		go(36, 1000) # Number of threads to use, Number to crawl per batch.
+		go(24, 1000) # Number of threads to use, Number to crawl per batch.
 	
 	except requests.exceptions.ConnectionError as e:	# If it was just a connection error restart
 		print(e)
@@ -407,8 +412,8 @@ def main():
 	# Figure out what urls to crawl
 	import url_scrape
 	global urls_to_crawl
-	#urls_to_crawl = list(url_scrape.crawl_apartments())
-	#saveProgress()
+	urls_to_crawl = list(url_scrape.crawl_apartments())
+	saveProgress()
 	
 	# Reconcile the new list with already crawled urls.
 	updateFromDatabase()

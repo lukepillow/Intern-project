@@ -131,7 +131,7 @@ def create_table(conn, tableName):
 	PropertyName TEXT,
 	PropertyNameTitle TEXT,
 	PropertyPhotoUrl TEXT,
-	PropertyUrl TEXT,
+	PropertyUrl TEXT NOT NULL,
 	RentFormat_Alert TEXT,
 	RentFormat_Availability TEXT,
 	RentFormat_Beds TEXT,
