@@ -1,5 +1,6 @@
 import requests
 import gzip
+import logging
 from bs4 import BeautifulSoup
 
 
@@ -54,5 +55,11 @@ def getUrls(url):
 
 def crawl_apartments():
 	'''Returns a set containing all the links under the apartments.com robot.txt.'''
-	return getUrls('https://www.apartments.com/sitemap_AllProfiles.xml.gz')
-			
+	print("Scraping urls from the apartments.com robots.txt.")
+	logging.info("Scraping urls from the apartments.com robots.txt.")
+	urls = getUrls('https://www.apartments.com/sitemap_AllProfiles.xml.gz')
+	print("Done scraping.")
+	logging.info("Done scraping.")
+	
+	return urls
+	
