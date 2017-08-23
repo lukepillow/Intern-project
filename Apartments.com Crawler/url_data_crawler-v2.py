@@ -328,7 +328,7 @@ def insert_into_database(page_data):
 	'''This function is responsible for inserting all the data returned by the Pool scrape.'''
 	conn, cur = login_to_database()
 	query = 'INSERT INTO apartments_page_data VALUES (%s' + (', %s'*25) + ')'	# 26 total values to insert
-	psycopg2.extras.execute_batch(cur, query, page_data, page_size=10)			# extras.execute_batch is MUCH faster than individual executes
+	psycopg2.extras.execute_batch(cur, query, page_data, page_size=20)			# extras.execute_batch is MUCH faster than individual executes
 	conn.commit()
 	cur.close()
 	conn.close()
@@ -361,7 +361,7 @@ def go(numThreads, batchSize):
 		crawled_urls.add(url)
 		urls_to_crawl.remove(url)
 	
-	print("\n"+str(len(crawled_urls)) + " crawled so far.\n")
+	print("\n"+str(len(crawled_urls)) + " crawled so far.")
 	logging.info(str(len(crawled_urls)) + " crawled so far.")
 	
 	go(numThreads, batchSize)
