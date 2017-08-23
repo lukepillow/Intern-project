@@ -316,9 +316,10 @@ def crawl(url):
 	return data
 
 def insert_into_database(page_data):
+	'''This function is responsible for inserting all the data returned by the Pool scrape.'''
 	conn, cur = login_to_database()
 	query = 'INSERT INTO apartments_page_data VALUES (%s' + (', %s'*25) + ')'	# 26 total values to insert
-	psycopg2.extras.execute_batch(cur, query, page_data, page_size=10)
+	psycopg2.extras.execute_batch(cur, query, page_data, page_size=10)			# extras.execute_batch is MUCH faster than individual executes
 	conn.commit()
 	cur.close()
 	conn.close()
@@ -333,16 +334,20 @@ def go(numThreads, batchSize):
 		batch = urls_to_crawl[:batchSize]
 	else:
 		batch = urls_to_crawl
-		
+	
+	# Using a pool, asynchronously map threads to scrape all the urls.
 	with Pool(processes=numThreads) as pool:
 		page_data = pool.map(crawl, batch)
 	
+	# Clean the input to filter out urls that did not get a response.
 	cleaned_input = []
 	for page in page_data:
 		if page != None:
 			cleaned_input.append(page)
+			
 	insert_into_database(cleaned_input)
 	
+	# Mark the urls as crawled on the local cache.
 	for url in batch:
 		crawled_urls.add(url)
 		urls_to_crawl.remove(url)
@@ -350,8 +355,7 @@ def go(numThreads, batchSize):
 	print("\n"+str(len(crawled_urls)) + " crawled so far.\n")
 	logging.info(str(len(crawled_urls)) + " crawled so far.")
 	
-	return cleaned_input
-	#go(numThreads, batchSize)
+	go(numThreads, batchSize)
 	
 			
 def doesTableExist(tableName):
@@ -369,7 +373,7 @@ def goWrapper():
 	'''A wrapper for go that reupdates if go crashes.
 	It revalidates with the database to avoid recrawling any ids.'''
 	try:
-		go(36, 5000) # Number of threads to use, Number to crawl per batch.
+		go(36, 2000) # Number of threads to use, Number to crawl per batch.
 	except Exception as e:
 		print(e)
 		updateFromDatabase()
@@ -403,8 +407,6 @@ def main():
 
 
 if __name__ == '__main__':
-	#logging.basicConfig(filename="debug.log", level=logging.DEBUG)
-	#main()
-	loadProgress()
-	test = go(36,100)
+	logging.basicConfig(filename="debug.log", level=logging.DEBUG)
+	main()
 	pass
