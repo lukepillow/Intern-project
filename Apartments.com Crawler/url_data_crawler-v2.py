@@ -1,4 +1,5 @@
 import psycopg2
+import psycopg2.extras
 import requests
 import json
 import re
@@ -307,19 +308,22 @@ def crawl(url):
 	listingId = responseJSON['listingId']
 	
 	
-	# Insert data into database
+	# Return data to be inserted into database
 	data = (url,owner,title,unit_type,price_type,street_address,city,region,zip_code,\
 		neighborhood,building_info,n_of_unit,lat,lon,image_json,amenities,state,description,\
 		phone_number,profileType, mediaCollection, rentals, reviews, costarVerified, propertyType, listingId)
 	
+	return data
+
+def insert_into_database(page_data):
 	conn, cur = login_to_database()
 	query = 'INSERT INTO apartments_page_data VALUES (%s' + (', %s'*25) + ')'	# 26 total values to insert
-	cur.execute(query, data)
+	psycopg2.extras.execute_batch(cur, query, page_data, page_size=10)
 	conn.commit()
 	cur.close()
 	conn.close()
-	#return data
-
+	
+	
 def go(numThreads, batchSize):
 	'''Runs the crawler. Cant quite be gracefully stopped yet.'''
 	# Crawl in batches of batchSize
@@ -331,8 +335,14 @@ def go(numThreads, batchSize):
 		batch = urls_to_crawl
 		
 	with Pool(processes=numThreads) as pool:
-		pool.map(crawl, batch)
-		
+		page_data = pool.map(crawl, batch)
+	
+	cleaned_input = []
+	for page in page_data:
+		if page != None:
+			cleaned_input.append(page)
+	insert_into_database(cleaned_input)
+	
 	for url in batch:
 		crawled_urls.add(url)
 		urls_to_crawl.remove(url)
@@ -340,7 +350,8 @@ def go(numThreads, batchSize):
 	print("\n"+str(len(crawled_urls)) + " crawled so far.\n")
 	logging.info(str(len(crawled_urls)) + " crawled so far.")
 	
-	go(numThreads, batchSize)
+	return cleaned_input
+	#go(numThreads, batchSize)
 	
 			
 def doesTableExist(tableName):
@@ -392,5 +403,8 @@ def main():
 
 
 if __name__ == '__main__':
-	logging.basicConfig(filename="debug.log", level=logging.DEBUG)
-	main()
+	#logging.basicConfig(filename="debug.log", level=logging.DEBUG)
+	#main()
+	loadProgress()
+	test = go(36,100)
+	pass
