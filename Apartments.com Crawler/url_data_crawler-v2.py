@@ -181,10 +181,19 @@ def getResponse(url):
 	'''Takes a url and returns a response object.'''
 	try:
 		response = requests.get(url)
+		
+	# Attempt a longer wait if the connection was denied from server due to too many requests
+	except requests.exceptions.ConnectionError:
+		time.sleep(5)
+		response = requests.get(url)
+	
+	# This catches all other exceptions
 	except:									# This retries the url ONCE
 		time.sleep(1)
 		response = requests.get(url)
-	if not response.status_code == 200:
+	
+	# Process the status codes
+	if not response.status_code == 200:		# 200 means there were no problems
 		if response.status_code == 404: 	# This occurs when the listing is no longer on the site and the url gets redirected
 			return None
 		else:
@@ -373,8 +382,12 @@ def goWrapper():
 	'''A wrapper for go that reupdates if go crashes.
 	It revalidates with the database to avoid recrawling any ids.'''
 	try:
-		go(36, 2000) # Number of threads to use, Number to crawl per batch.
-	except Exception as e:
+		go(36, 1000) # Number of threads to use, Number to crawl per batch.
+	
+	except requests.exceptions.ConnectionError as e:	# If it was just a connection error restart
+		print(e)
+		goWrapper()
+	except Exception as e:						# Otherwise it was probably a database error and we should update from database
 		print(e)
 		updateFromDatabase()
 		goWrapper()
@@ -394,8 +407,8 @@ def main():
 	# Figure out what urls to crawl
 	import url_scrape
 	global urls_to_crawl
-	urls_to_crawl = list(url_scrape.crawl_apartments())
-	saveProgress()
+	#urls_to_crawl = list(url_scrape.crawl_apartments())
+	#saveProgress()
 	
 	# Reconcile the new list with already crawled urls.
 	updateFromDatabase()
