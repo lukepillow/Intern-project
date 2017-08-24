@@ -200,6 +200,9 @@ def getResponse(url):
 	if not response.status_code == 200:		# 200 means there were no problems
 		if response.status_code == 404: 	# This occurs when the listing is no longer on the site and the url gets redirected
 			return None
+		if response.status_code == 500:
+			print("Status code 500 received. Skipping url: " + url)
+			return None
 		else:
 			print('Status code other than 200 received. Uh oh.')
 			print(response.status_code)
@@ -371,6 +374,7 @@ def go(numThreads, batchSize):
 	logging.info(str(len(crawled_urls)) + " crawled so far.")
 	
 	if done:
+		print('Done crawling!')
 		return
 	else:
 		go(numThreads, batchSize)
@@ -416,8 +420,8 @@ def main():
 	# Figure out what urls to crawl
 	import url_scrape
 	global urls_to_crawl
-	#urls_to_crawl = list(url_scrape.crawl_apartments())
-	#saveProgress()
+	urls_to_crawl = list(url_scrape.crawl_apartments())
+	saveProgress()
 	
 	# Reconcile the new list with already crawled urls.
 	updateFromDatabase()
@@ -430,9 +434,5 @@ def main():
 
 if __name__ == '__main__':
 	logging.basicConfig(filename="debug.log", level=logging.DEBUG)
-	
-	with open('output.pickle', 'rb') as f:
-		urls_to_crawl = pickle.load(f)
-	
 	main()
 	pass
