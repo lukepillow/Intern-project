@@ -412,8 +412,8 @@ def main():
 	# Figure out what urls to crawl
 	import url_scrape
 	global urls_to_crawl
-	urls_to_crawl = list(url_scrape.crawl_apartments())
-	saveProgress()
+	#urls_to_crawl = list(url_scrape.crawl_apartments())
+	#saveProgress()
 	
 	# Reconcile the new list with already crawled urls.
 	updateFromDatabase()
@@ -426,5 +426,9 @@ def main():
 
 if __name__ == '__main__':
 	logging.basicConfig(filename="debug.log", level=logging.DEBUG)
+	
+	with open('output.pickle', 'rb') as f:
+		urls_to_crawl = pickle.load(f)
+	
 	main()
 	pass
