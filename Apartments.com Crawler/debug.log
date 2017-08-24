@@ -1632,3 +1632,76 @@ INFO:root:Page Crawler is done loading previous progress!
 INFO:root:Page Crawler is saving progress...
 INFO:root:Page Crawler is done saving progress!
 INFO:root:884243 crawled so far.
+INFO:root:Page Crawler is loading previous progress...
+WARNING:root:Error loading previous progress from page_data folder.
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:885236 crawled so far.
+INFO:root:886236 crawled so far.
+INFO:root:887236 crawled so far.
+INFO:root:888236 crawled so far.
+INFO:root:889236 crawled so far.
+INFO:root:890236 crawled so far.
+INFO:root:891236 crawled so far.
+INFO:root:892236 crawled so far.
+INFO:root:893236 crawled so far.
+INFO:root:894236 crawled so far.
+INFO:root:895236 crawled so far.
+INFO:root:896236 crawled so far.
+INFO:root:897236 crawled so far.
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+DEBUG:root:Unable to connect to the database.
+DEBUG:root:could not translate host name "data-team.cfvkbgrgybof.us-west-1.rds.amazonaws.com" to address: Unknown host
+
+DEBUG:root:Retrying connection...
+DEBUG:root:Unable to connect to the database.
+DEBUG:root:could not translate host name "data-team.cfvkbgrgybof.us-west-1.rds.amazonaws.com" to address: Unknown host
+
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:898198 crawled so far.
+INFO:root:899198 crawled so far.
+INFO:root:900198 crawled so far.
+INFO:root:901198 crawled so far.
+INFO:root:902198 crawled so far.
+INFO:root:903198 crawled so far.
+INFO:root:904198 crawled so far.
+INFO:root:905198 crawled so far.
+INFO:root:906198 crawled so far.
+INFO:root:907198 crawled so far.
+INFO:root:908198 crawled so far.

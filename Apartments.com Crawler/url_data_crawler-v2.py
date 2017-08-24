@@ -155,15 +155,15 @@ def create_table():
                             description text,
                             phone_number text,
                             profileType text,
-							
-							mediaCollection TEXT,
-							rentals TEXT,
-							reviews TEXT,
-							costarVerified BOOLEAN,
-							propertyType TEXT,
-							ListingId CHARACTER(7),
-							
-							
+                            
+                            mediaCollection TEXT,
+                            rentals TEXT,
+                            reviews TEXT,
+                            costarVerified BOOLEAN,
+                            propertyType TEXT,
+                            ListingId CHARACTER(7),
+                            
+                            
                             CONSTRAINT crawled_apart_listing_{0}_pkey PRIMARY KEY (url)
                         )
                         WITH (
@@ -186,6 +186,10 @@ def getResponse(url):
 	except requests.exceptions.ConnectionError:
 		time.sleep(5)
 		response = requests.get(url)
+	
+	# If the error is due to too many redirects (30) then skip the url
+	except requests.exceptions.TooManyRedirects:
+		return None
 	
 	# This catches all other exceptions
 	except:									# This retries the url ONCE
