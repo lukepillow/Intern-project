@@ -2,10 +2,18 @@ import requests
 import demjson
 import time
 import psycopg2
+import psycopg2.extras
 import re
 import json
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse, parse_qs
+from multiprocessing import Pool
+import time
+import pickle
+import logging
+
+urls_to_crawl = []
+crawled_urls = set()
 
 def find_match_parentheses(s):
 		counts = 0
@@ -17,6 +25,38 @@ def find_match_parentheses(s):
 				if counts == 0:
 					return i+1
 		return None
+
+def update_crawled_urls(cur):
+	'''Updates from the book_data db to get already crawled urls.'''
+	global crawled_urls
+	global urls_to_crawl
+	
+	#temp
+	table_name = 'book_data'
+	
+	print('Updating crawled_urls using ' +table_name+ '. This may take a second...')
+	urls = set()
+	query = 'SELECT url FROM book_data'
+	cur.execute(query)
+	raw_urls = cur.fetchall()
+	for url in raw_urls:
+		urls.add(url[0])
+	
+	crawled_urls = urls										# Update the list of crawled_urls
+	urls_to_crawl = list(set(urls_to_crawl) - crawled_urls)	# Remove any crawled_urls from urls_to_crawl
+	print('Done updating crawled_urls.')
+
+def updateFromDatabase():
+	
+	#loadProgress()
+
+	conn, cur = login_to_database()
+	update_crawled_urls(cur)
+	cur.close()
+	conn.close()
+	
+	#saveProgress()
+
 
 def getResponse(url):
 	'''Takes a url and returns a response object.'''
@@ -41,51 +81,78 @@ def getSoup(response):
 	return soup
 
 def getFeatures(response):
+	# Check for redirect
+	if response == None:
+		return
+
 	url = response.url
 
 	soup = getSoup(response)
 	
 	#
-	#try:
-	title = soup.title.text.strip()
-	#except:
-	#title=' '
+	try:
+		title = soup.title.text.strip()
+	except:
+		title= None
 
 	#
-	#try:
-	description = soup.find(class_='hp_desc_main_content').text.strip()
-	description_marker = -(description[::-1].find("What would you like to know?"[::-1])+len("What would you like to know?"))
-	description = description[:description_marker].strip()								# Cuts off the extra added at the tail
-	#except:
-	#description=' '
+	try:
+		description = soup.find(class_='hp_desc_main_content').text.strip()
+		description_marker = -(description[::-1].find("What would you like to know?"[::-1])+len("What would you like to know?"))
+		description = description[:description_marker].strip()								# Cuts off the extra added at the tail
+	except:
+		description=None
 	#
-	#try:
-	facilities_list = []
-	facilities_sections = soup.find_all(class_='facilitiesChecklist')[-1]
-	for section in facilities_sections.find_all(class_='facilitiesChecklistSection'):
-		section_header = section.h5.text.strip()
-		for subsection in section.ul.find_all('li'):
-			facilities_list.append('('+section_header+'): ' + subsection.text.strip())	# Takes the form of "(Header): Section text"
-	
+	try:
+		facilities_list = []
+		facilities_sections = soup.find_all(class_='facilitiesChecklist')[-1]
+		for section in facilities_sections.find_all(class_='facilitiesChecklistSection'):
+			section_header = section.h5.text.strip()
+			for subsection in section.ul.find_all('li'):
+				facilities_list.append('('+section_header+'): ' + subsection.text.strip())	# Takes the form of "(Header): Section text"
+	except:
+		facilities_list = None
+
 	# Extracts the first javascript header, which is parsable with demjson
-	first_json = demjson.decode(soup.find_all('script')[1].text)
+	try:
+		first_json = demjson.decode(soup.find_all('script')[1].text)
+	except:
+		first_json = None
 	#
-	hotelmap = first_json['hasMap']
-	hoteltype = first_json['@type']
-	hotelname = first_json['name']
-	description_mini = first_json['description']
-	priceRange_text = first_json['priceRange']
-	url_again = first_json['url']
-	address_json = first_json['address']
-	rating_json = first_json.get('aggregateRating') ##return none
+	if first_json:
+		hotelmap = first_json.get('hasMap')
+		hoteltype = first_json.get('@type')
+		hotelname = first_json.get('name')
+		description_mini = first_json.get('description')
+		priceRange_text = first_json.get('priceRange')
+		url_again = first_json.get('url')
+		address_json = first_json.get('address')
+		rating_json = first_json.get('aggregateRating') ##return none
+	else:
+		hotelmap = None
+		hoteltype = None
+		hotelname = None
+		description_mini = None
+		priceRange_text = None
+		url_again = None
+		address_json = None
+		rating_json = None
 
 	# Breakdown address_json into details
-	ad_type=address_json['@type']
-	ad_country=address_json['addressCountry']
-	ad_locality=address_json['addressLocality']
-	ad_region=address_json['addressRegion']
-	ad_postalcode=address_json['postalCode']
-	ad_streetadress=address_json['streetAddress']
+	if address_json:
+		ad_type=address_json.get('@type')
+		ad_country=address_json.get('addressCountry')
+		ad_locality=address_json.get('addressLocality')
+		ad_region=address_json.get('addressRegion')
+		ad_postalcode=address_json.get('postalCode')
+		ad_streetadress=address_json.get('streetAddress')
+	else:
+		ad_type = None
+		ad_country = None
+		ad_locality = None
+		ad_region = None
+		ad_postalcode = None
+		ad_streetadress = None
 
 	# Breakdown rating_json into details
 	if rating_json:
@@ -123,23 +190,29 @@ def getFeatures(response):
 		review_sub_score_breakdown=json.dumps(review_sub_score_breakdown)
 	else:
 		review_sub_score_breakdown=None
-
+	# Todo : fix on some outliers
 	#picture url
-	x=soup.find_all('script')[2].text
-	x = x.replace('\n','')
-	idx = x.find('hotelPhotos')
-	substring = x[idx+13:]
-	catched = substring[:find_match_parentheses(substring)]
-	temp = re.sub(r'([^\{,]*?):[^/]',r'"\1":',catched.replace('"',"quote_place_holder").replace("'",'"').replace("quote_place_holder","'"))
-	picurl = json.loads(temp)
+	try:
+		x=soup.find_all('script')[2].text
+		x = x.replace('\n','')
+		idx = x.find('hotelPhotos')
+		substring = x[idx+13:]
+		catched = substring[:find_match_parentheses(substring)]
+		temp = re.sub(r'([^\{,]*?):[^/]',r'"\1":',catched.replace('"',"quote_place_holder").replace("'",'"').replace("quote_place_holder","'"))
+		picurl = json.loads(temp)
+	except:
+		picurl = None
 
 	#room types
-	room_types=[]
-	for room_tag in soup.find(id='maxotel_rooms').find_all(class_='room-info'):
-		room_title = room_tag.find('a').text.strip()
-		room_text = ' '.join(room_tag.text.strip().replace('\n', ' ').split())
-		room_text = room_text[len(room_title)+1:]
-		room_types.append((room_title, room_text))
+	try:
+		room_types=[]
+		for room_tag in soup.find(id='maxotel_rooms').find_all(class_='room-info'):
+			room_title = room_tag.find('a').text.strip()
+			room_text = ' '.join(room_tag.text.strip().replace('\n', ' ').split())
+			room_text = room_text[len(room_title)+1:]
+			room_types.append((room_title, room_text))
+	except:
+		room_types = None
 	
 	
 	#recent_reviews = []
@@ -152,10 +225,18 @@ def getFeatures(response):
 	#	#^Removes the bullet points
 	#	review_text_negative = review.find(class_="review_neg").text.strip()[1:]
 	#	review_text_positive = review.find(class_="review_pos").text.strip()[1:]
-	return(url,title,description,json.dumps(facilities_list),hotelmap,hoteltype,hotelname,description_mini,
+	data = (url,title,description,json.dumps(facilities_list),hotelmap,hoteltype,hotelname,description_mini,
 			   priceRange_text, url_again, ad_type, ad_country, ad_locality, ad_region, ad_postalcode, ad_streetadress,
 			   best_rating, rating_value, reviewCounts, lat, lng, review_score_breakdown,
 			   review_sub_score_breakdown, json.dumps(picurl), json.dumps(room_types))
+	
+	return data
+
+
+def crawl(url):
+	response = getResponse(url)
+	data = getFeatures(response)
+	return data
 
 def login_to_database():
 	'''Wrapper for connect_postgresql() that uses credentials stored in "credentials.py"'''
@@ -189,7 +270,7 @@ def create_table():
 	date = time.strftime("%x").replace('/', '_')
 	create_cmds = '''CREATE TABLE book_data
 						(
-							url text NOT NULL,
+							url text UNIQUE NOT NULL,
 							title TEXT ,
 							description TEXT ,
 							facilities_list TEXT ,
@@ -205,15 +286,17 @@ def create_table():
 							ad_region TEXT,
 							ad_postalcode TEXT,
 							ad_streetadress TEXT,
-							best_rating TEXT,
-							rating_value TEXT,
-							reviewCounts TEXT,
+							best_rating FLOAT4,
+							rating_value FLOAT4,
+							reviewCounts FLOAT4,
 							lat double precision,
 							lon double precision,
 							review_score_breakdown TEXT,
 							review_sub_score_breakdown TEXT,
 							picurl TEXT,
-							room_types TEXT
+							room_types TEXT,
+
+							CONSTRAINT book_data_pkey PRIMARY KEY (url)
 							
 						)'''
 	conn,cur = login_to_database()
@@ -221,26 +304,78 @@ def create_table():
 	conn.commit()
 	cur.close()
 	conn.close()
-	logging.info("Table created for url_data_crawler.")
+	#logging.info("Table created for url_data_crawler.")
 
-
-def book_crawl(url):
+def insert_into_database(page_data):
 	#refer to garrett's code
-	response = getResponse(url)
-
-	# Check for redirect
-	if response == None:
-		return
-	elif not response.url == url:
-		return
-
-	data=getFeatures(response)
 	conn, cur = login_to_database()
-	query = 'INSERT INTO book_data VALUES (%s' + (', %s'*25) + ')'	# 25 total values to insert
-	cur.execute(query, data)
+	query = 'INSERT INTO book_data VALUES (%s' + (', %s'*24) + ')'	# 25 total values to insert
+	psycopg2.extras.execute_batch(cur, query, page_data, page_size=20)
 	conn.commit()
 	cur.close()
-	conn.close()       
+	conn.close()
+
+def book_go(numThreads, batchSize):
+	global urls_to_crawl
+	global crawled_urls
+	done = False
+	if len(urls_to_crawl) >= batchSize:
+		batch = urls_to_crawl[:batchSize]
+	else:
+		batch = urls_to_crawl
+		done = True
+	
+	# Using a pool, asynchronously map threads to scrape all the urls.
+	with Pool(processes=numThreads) as pool:
+		page_data = pool.map(crawl, batch)
+	
+	# Clean the input to filter out urls that did not get a response.
+	cleaned_input = []
+	for page in page_data:
+		if page != None:
+			cleaned_input.append(page)
+			
+	insert_into_database(cleaned_input)
+	
+	# Mark the urls as crawled on the local cache.
+	for url in batch:
+		crawled_urls.add(url)
+		urls_to_crawl.remove(url)
+	
+	print("\n"+str(len(crawled_urls)) + " crawled so far.")
+	#logging.info(str(len(crawled_urls)) + " crawled so far.")
+	
+	if done:
+		return
+	else:
+		book_go(numThreads, batchSize)
+
+def doesTableExist(tableName):
+	'''Returns True if table exists and False if it doesn't.'''
+	query = "SELECT '{0}'::regclass".format(tableName)
+	conn, cur = login_to_database()
+	
+	try:
+		cur.execute(query)
+		return True
+	except psycopg2.ProgrammingError as e:
+		return False			
+			
+def goWrapper():
+	'''A wrapper for go that reupdates if go crashes.
+	It revalidates with the database to avoid recrawling any ids.'''
+	try:
+		book_go(8, 1000) # Number of threads to use, Number to crawl per batch.
+	
+	except requests.exceptions.ConnectionError as e:	# If it was just a connection error restart
+		print(e)
+		goWrapper()
+	except Exception as e:						# Otherwise it was probably a database error and we should update from database
+		print(e)
+		updateFromDatabase()
+		goWrapper()
+
+
 	
 #####################################
 def getReviewsRequest(url, offset=0):
@@ -269,9 +404,17 @@ def getCountryCode(url):
 	return url[start:start+2]
 
 
-#def main():
+def main():
+	global urls_to_crawl
+	with open('booking.pickle','rb') as f:
+		urls_to_crawl=list(pickle.load(f))[:1000]
 
+	updateFromDatabase()
+	# Crawl it all
+	print(str(len(urls_to_crawl))+" new urls to crawl.")
+	#goWrapper()
+	book_go(8,100)
 
 if __name__ == '__main__':
-	#main()
+	main()
 	pass
