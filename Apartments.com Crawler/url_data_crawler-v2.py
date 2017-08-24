@@ -155,15 +155,15 @@ def create_table():
                             description text,
                             phone_number text,
                             profileType text,
-							
-							mediaCollection TEXT,
-							rentals TEXT,
-							reviews TEXT,
-							costarVerified BOOLEAN,
-							propertyType TEXT,
-							ListingId CHARACTER(7),
-							
-							
+                            
+                            mediaCollection TEXT,
+                            rentals TEXT,
+                            reviews TEXT,
+                            costarVerified BOOLEAN,
+                            propertyType TEXT,
+                            ListingId CHARACTER(7),
+                            
+                            
                             CONSTRAINT crawled_apart_listing_{0}_pkey PRIMARY KEY (url)
                         )
                         WITH (
@@ -187,6 +187,10 @@ def getResponse(url):
 		time.sleep(5)
 		response = requests.get(url)
 	
+	# If the error is due to too many redirects (30) then skip the url
+	except requests.exceptions.TooManyRedirects:
+		return None
+	
 	# This catches all other exceptions
 	except:									# This retries the url ONCE
 		time.sleep(1)
@@ -195,6 +199,9 @@ def getResponse(url):
 	# Process the status codes
 	if not response.status_code == 200:		# 200 means there were no problems
 		if response.status_code == 404: 	# This occurs when the listing is no longer on the site and the url gets redirected
+			return None
+		if response.status_code == 500:
+			print("Status code 500 received. Skipping url: " + url)
 			return None
 		else:
 			print('Status code other than 200 received. Uh oh.')
@@ -339,10 +346,12 @@ def go(numThreads, batchSize):
 	# Crawl in batches of batchSize
 	global urls_to_crawl
 	global crawled_urls
+	done = False
 	if len(urls_to_crawl) >= batchSize:
 		batch = urls_to_crawl[:batchSize]
 	else:
 		batch = urls_to_crawl
+		done = True
 	
 	# Using a pool, asynchronously map threads to scrape all the urls.
 	with Pool(processes=numThreads) as pool:
@@ -364,7 +373,11 @@ def go(numThreads, batchSize):
 	print("\n"+str(len(crawled_urls)) + " crawled so far.")
 	logging.info(str(len(crawled_urls)) + " crawled so far.")
 	
-	go(numThreads, batchSize)
+	if done:
+		print('Done crawling!')
+		return
+	else:
+		go(numThreads, batchSize)
 	
 			
 def doesTableExist(tableName):
@@ -382,7 +395,7 @@ def goWrapper():
 	'''A wrapper for go that reupdates if go crashes.
 	It revalidates with the database to avoid recrawling any ids.'''
 	try:
-		go(36, 1000) # Number of threads to use, Number to crawl per batch.
+		go(24, 1000) # Number of threads to use, Number to crawl per batch.
 	
 	except requests.exceptions.ConnectionError as e:	# If it was just a connection error restart
 		print(e)
@@ -407,8 +420,8 @@ def main():
 	# Figure out what urls to crawl
 	import url_scrape
 	global urls_to_crawl
-	#urls_to_crawl = list(url_scrape.crawl_apartments())
-	#saveProgress()
+	urls_to_crawl = list(url_scrape.crawl_apartments())
+	saveProgress()
 	
 	# Reconcile the new list with already crawled urls.
 	updateFromDatabase()

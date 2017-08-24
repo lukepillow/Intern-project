@@ -1,0 +1,1799 @@
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllProfiles.xml.gz HTTP/1.1" 200 237
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_TopProfiles.xml.gz HTTP/1.1" 200 236
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllAProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AProfiles.xml.gz HTTP/1.1" 200 165707
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BProfiles.xml.gz HTTP/1.1" 200 239053
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllCProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_CProfiles.xml.gz HTTP/1.1" 200 552398
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllDProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_DProfiles.xml.gz HTTP/1.1" 200 460074
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicProfiles.xml.gz HTTP/1.1" 200 257
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicPropertyProfiles.xml.gz HTTP/1.1" 200 223
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicPropertyProfiles.xml.gz HTTP/1.1" 200 837077
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicSPMProfiles.xml.gz HTTP/1.1" 200 233
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicSPMProfiles.xml.gz HTTP/1.1" 200 1153149
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicSPMProfiles_2.xml.gz HTTP/1.1" 200 361299
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicFeedProfiles.xml.gz HTTP/1.1" 200 246
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles.xml.gz HTTP/1.1" 200 1096112
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_3.xml.gz HTTP/1.1" 200 1167382
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_5.xml.gz HTTP/1.1" 200 1202455
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_2.xml.gz HTTP/1.1" 200 1231033
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_4.xml.gz HTTP/1.1" 200 1154515
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_6.xml.gz HTTP/1.1" 200 595233
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllNotSearchableProfiles.xml.gz HTTP/1.1" 200 226
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_NotSearchableProfiles.xml.gz HTTP/1.1" 200 55250
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2Profiles.xml.gz HTTP/1.1" 200 226
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllTier2PropertyProfiles.xml.gz HTTP/1.1" 200 233
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles.xml.gz HTTP/1.1" 200 1375023
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles_2.xml.gz HTTP/1.1" 200 1362518
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles_3.xml.gz HTTP/1.1" 200 709780
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllProfiles.xml.gz HTTP/1.1" 200 237
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_TopProfiles.xml.gz HTTP/1.1" 200 236
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllAProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AProfiles.xml.gz HTTP/1.1" 200 165707
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BProfiles.xml.gz HTTP/1.1" 200 239053
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllCProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_CProfiles.xml.gz HTTP/1.1" 200 552398
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllDProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_DProfiles.xml.gz HTTP/1.1" 200 460074
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicProfiles.xml.gz HTTP/1.1" 200 257
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicPropertyProfiles.xml.gz HTTP/1.1" 200 223
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicPropertyProfiles.xml.gz HTTP/1.1" 200 837077
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicSPMProfiles.xml.gz HTTP/1.1" 200 233
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicSPMProfiles.xml.gz HTTP/1.1" 200 1153149
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicSPMProfiles_2.xml.gz HTTP/1.1" 200 361299
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicFeedProfiles.xml.gz HTTP/1.1" 200 246
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles.xml.gz HTTP/1.1" 200 1096112
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_3.xml.gz HTTP/1.1" 200 1167382
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_5.xml.gz HTTP/1.1" 200 1202455
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_2.xml.gz HTTP/1.1" 200 1231033
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_4.xml.gz HTTP/1.1" 200 1154515
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_6.xml.gz HTTP/1.1" 200 595233
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllNotSearchableProfiles.xml.gz HTTP/1.1" 200 226
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_NotSearchableProfiles.xml.gz HTTP/1.1" 200 55250
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2Profiles.xml.gz HTTP/1.1" 200 226
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllTier2PropertyProfiles.xml.gz HTTP/1.1" 200 233
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles.xml.gz HTTP/1.1" 200 1375023
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles_2.xml.gz HTTP/1.1" 200 1362518
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles_3.xml.gz HTTP/1.1" 200 709780
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Scraping urls from the apartments.com robots.txt.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllProfiles.xml.gz HTTP/1.1" 200 237
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_TopProfiles.xml.gz HTTP/1.1" 200 236
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllAProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AProfiles.xml.gz HTTP/1.1" 200 165707
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BProfiles.xml.gz HTTP/1.1" 200 239053
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllCProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_CProfiles.xml.gz HTTP/1.1" 200 552398
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllDProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_DProfiles.xml.gz HTTP/1.1" 200 460074
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicProfiles.xml.gz HTTP/1.1" 200 257
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicPropertyProfiles.xml.gz HTTP/1.1" 200 223
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicPropertyProfiles.xml.gz HTTP/1.1" 200 837077
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicSPMProfiles.xml.gz HTTP/1.1" 200 233
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicSPMProfiles.xml.gz HTTP/1.1" 200 1153149
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicSPMProfiles_2.xml.gz HTTP/1.1" 200 361299
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicFeedProfiles.xml.gz HTTP/1.1" 200 246
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles.xml.gz HTTP/1.1" 200 1096112
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_3.xml.gz HTTP/1.1" 200 1167382
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_5.xml.gz HTTP/1.1" 200 1202455
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_2.xml.gz HTTP/1.1" 200 1231033
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_4.xml.gz HTTP/1.1" 200 1154515
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_6.xml.gz HTTP/1.1" 200 595233
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllNotSearchableProfiles.xml.gz HTTP/1.1" 200 226
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_NotSearchableProfiles.xml.gz HTTP/1.1" 200 55250
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2Profiles.xml.gz HTTP/1.1" 200 226
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllTier2PropertyProfiles.xml.gz HTTP/1.1" 200 233
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles.xml.gz HTTP/1.1" 200 1375023
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles_2.xml.gz HTTP/1.1" 200 1362518
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles_3.xml.gz HTTP/1.1" 200 709780
+INFO:root:Done scraping.
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:812344 crawled so far.
+INFO:root:813344 crawled so far.
+INFO:root:814344 crawled so far.
+INFO:root:815344 crawled so far.
+INFO:root:816344 crawled so far.
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:816687 crawled so far.
+INFO:root:817687 crawled so far.
+INFO:root:818687 crawled so far.
+INFO:root:819687 crawled so far.
+INFO:root:820687 crawled so far.
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:820786 crawled so far.
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Scraping urls from the apartments.com robots.txt.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllProfiles.xml.gz HTTP/1.1" 200 237
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_TopProfiles.xml.gz HTTP/1.1" 200 236
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllAProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AProfiles.xml.gz HTTP/1.1" 200 165707
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BProfiles.xml.gz HTTP/1.1" 200 239053
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllCProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_CProfiles.xml.gz HTTP/1.1" 200 552398
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllDProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_DProfiles.xml.gz HTTP/1.1" 200 460074
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicProfiles.xml.gz HTTP/1.1" 200 257
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicPropertyProfiles.xml.gz HTTP/1.1" 200 223
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicPropertyProfiles.xml.gz HTTP/1.1" 200 837077
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicSPMProfiles.xml.gz HTTP/1.1" 200 233
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicSPMProfiles.xml.gz HTTP/1.1" 200 1153149
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicSPMProfiles_2.xml.gz HTTP/1.1" 200 361299
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicFeedProfiles.xml.gz HTTP/1.1" 200 246
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles.xml.gz HTTP/1.1" 200 1096112
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_3.xml.gz HTTP/1.1" 200 1167382
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_5.xml.gz HTTP/1.1" 200 1202455
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_2.xml.gz HTTP/1.1" 200 1231033
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_4.xml.gz HTTP/1.1" 200 1154515
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_6.xml.gz HTTP/1.1" 200 595233
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllNotSearchableProfiles.xml.gz HTTP/1.1" 200 226
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_NotSearchableProfiles.xml.gz HTTP/1.1" 200 55250
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2Profiles.xml.gz HTTP/1.1" 200 226
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllTier2PropertyProfiles.xml.gz HTTP/1.1" 200 233
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles.xml.gz HTTP/1.1" 200 1375023
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles_2.xml.gz HTTP/1.1" 200 1362518
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles_3.xml.gz HTTP/1.1" 200 709780
+INFO:root:Done scraping.
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Scraping urls from the apartments.com robots.txt.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllProfiles.xml.gz HTTP/1.1" 200 237
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_TopProfiles.xml.gz HTTP/1.1" 200 236
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllAProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AProfiles.xml.gz HTTP/1.1" 200 165707
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BProfiles.xml.gz HTTP/1.1" 200 239053
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllCProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_CProfiles.xml.gz HTTP/1.1" 200 552398
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllDProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_DProfiles.xml.gz HTTP/1.1" 200 460074
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:821285 crawled so far.
+INFO:root:822285 crawled so far.
+INFO:root:823285 crawled so far.
+INFO:root:824285 crawled so far.
+INFO:root:825285 crawled so far.
+INFO:root:826285 crawled so far.
+INFO:root:827285 crawled so far.
+INFO:root:828285 crawled so far.
+INFO:root:829285 crawled so far.
+INFO:root:830285 crawled so far.
+INFO:root:831285 crawled so far.
+INFO:root:832285 crawled so far.
+INFO:root:833285 crawled so far.
+INFO:root:834285 crawled so far.
+INFO:root:835285 crawled so far.
+INFO:root:836285 crawled so far.
+INFO:root:837285 crawled so far.
+INFO:root:838285 crawled so far.
+INFO:root:839285 crawled so far.
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:837620 crawled so far.
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:838438 crawled so far.
+INFO:root:839438 crawled so far.
+INFO:root:840438 crawled so far.
+INFO:root:841438 crawled so far.
+INFO:root:842438 crawled so far.
+INFO:root:843438 crawled so far.
+INFO:root:844438 crawled so far.
+INFO:root:845438 crawled so far.
+INFO:root:846438 crawled so far.
+INFO:root:847438 crawled so far.
+INFO:root:848438 crawled so far.
+INFO:root:849438 crawled so far.
+INFO:root:850438 crawled so far.
+INFO:root:851438 crawled so far.
+INFO:root:852438 crawled so far.
+INFO:root:853438 crawled so far.
+INFO:root:854438 crawled so far.
+INFO:root:855438 crawled so far.
+INFO:root:856438 crawled so far.
+INFO:root:857438 crawled so far.
+INFO:root:858438 crawled so far.
+INFO:root:859438 crawled so far.
+INFO:root:860438 crawled so far.
+INFO:root:861438 crawled so far.
+INFO:root:862438 crawled so far.
+INFO:root:863438 crawled so far.
+INFO:root:864438 crawled so far.
+INFO:root:865438 crawled so far.
+INFO:root:866438 crawled so far.
+INFO:root:867438 crawled so far.
+INFO:root:868438 crawled so far.
+INFO:root:869438 crawled so far.
+INFO:root:870438 crawled so far.
+INFO:root:871438 crawled so far.
+INFO:root:872438 crawled so far.
+INFO:root:873438 crawled so far.
+INFO:root:874438 crawled so far.
+INFO:root:875438 crawled so far.
+INFO:root:876438 crawled so far.
+INFO:root:877438 crawled so far.
+INFO:root:878438 crawled so far.
+INFO:root:879438 crawled so far.
+INFO:root:880438 crawled so far.
+INFO:root:881438 crawled so far.
+INFO:root:882438 crawled so far.
+INFO:root:882892 crawled so far.
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:875353 crawled so far.
+INFO:root:876353 crawled so far.
+INFO:root:877353 crawled so far.
+INFO:root:Scraping urls from the apartments.com robots.txt.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllProfiles.xml.gz HTTP/1.1" 200 237
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_TopProfiles.xml.gz HTTP/1.1" 200 236
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllAProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AProfiles.xml.gz HTTP/1.1" 200 165707
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BProfiles.xml.gz HTTP/1.1" 200 239053
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllCProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_CProfiles.xml.gz HTTP/1.1" 200 552398
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllDProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_DProfiles.xml.gz HTTP/1.1" 200 460074
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicProfiles.xml.gz HTTP/1.1" 200 257
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicPropertyProfiles.xml.gz HTTP/1.1" 200 223
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicPropertyProfiles.xml.gz HTTP/1.1" 200 837077
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicSPMProfiles.xml.gz HTTP/1.1" 200 233
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicSPMProfiles.xml.gz HTTP/1.1" 200 1153149
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicSPMProfiles_2.xml.gz HTTP/1.1" 200 361299
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicFeedProfiles.xml.gz HTTP/1.1" 200 246
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles.xml.gz HTTP/1.1" 200 1096112
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_3.xml.gz HTTP/1.1" 200 1167382
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_5.xml.gz HTTP/1.1" 200 1202455
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_2.xml.gz HTTP/1.1" 200 1231033
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_4.xml.gz HTTP/1.1" 200 1154515
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_6.xml.gz HTTP/1.1" 200 595233
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllNotSearchableProfiles.xml.gz HTTP/1.1" 200 226
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_NotSearchableProfiles.xml.gz HTTP/1.1" 200 55250
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2Profiles.xml.gz HTTP/1.1" 200 226
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllTier2PropertyProfiles.xml.gz HTTP/1.1" 200 233
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles.xml.gz HTTP/1.1" 200 1375023
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles_2.xml.gz HTTP/1.1" 200 1362518
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles_3.xml.gz HTTP/1.1" 200 709780
+INFO:root:Done scraping.
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:875359 crawled so far.
+INFO:root:876359 crawled so far.
+INFO:root:877359 crawled so far.
+INFO:root:878359 crawled so far.
+INFO:root:879359 crawled so far.
+INFO:root:880359 crawled so far.
+INFO:root:881359 crawled so far.
+INFO:root:882359 crawled so far.
+INFO:root:882853 crawled so far.
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:875377 crawled so far.
+INFO:root:876377 crawled so far.
+INFO:root:877377 crawled so far.
+INFO:root:878377 crawled so far.
+INFO:root:878688 crawled so far.
+INFO:root:878844 crawled so far.
+INFO:root:878922 crawled so far.
+INFO:root:878961 crawled so far.
+INFO:root:878980 crawled so far.
+INFO:root:878990 crawled so far.
+INFO:root:878995 crawled so far.
+INFO:root:878997 crawled so far.
+INFO:root:878998 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+DEBUG:root:Retrying connection...
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:878999 crawled so far.
+INFO:root:Scraping urls from the apartments.com robots.txt.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllProfiles.xml.gz HTTP/1.1" 200 237
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_TopProfiles.xml.gz HTTP/1.1" 200 236
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllAProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AProfiles.xml.gz HTTP/1.1" 200 165707
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BProfiles.xml.gz HTTP/1.1" 200 239053
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllCProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_CProfiles.xml.gz HTTP/1.1" 200 552398
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllDProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_DProfiles.xml.gz HTTP/1.1" 200 460074
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicProfiles.xml.gz HTTP/1.1" 200 257
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicPropertyProfiles.xml.gz HTTP/1.1" 200 223
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicPropertyProfiles.xml.gz HTTP/1.1" 200 837077
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicSPMProfiles.xml.gz HTTP/1.1" 200 233
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicSPMProfiles.xml.gz HTTP/1.1" 200 1153149
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicSPMProfiles_2.xml.gz HTTP/1.1" 200 361299
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicFeedProfiles.xml.gz HTTP/1.1" 200 246
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles.xml.gz HTTP/1.1" 200 1096112
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_3.xml.gz HTTP/1.1" 200 1167382
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_5.xml.gz HTTP/1.1" 200 1202455
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_2.xml.gz HTTP/1.1" 200 1231033
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_4.xml.gz HTTP/1.1" 200 1154515
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_6.xml.gz HTTP/1.1" 200 595233
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllNotSearchableProfiles.xml.gz HTTP/1.1" 200 226
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_NotSearchableProfiles.xml.gz HTTP/1.1" 200 55250
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2Profiles.xml.gz HTTP/1.1" 200 226
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllTier2PropertyProfiles.xml.gz HTTP/1.1" 200 233
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles.xml.gz HTTP/1.1" 200 1375023
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles_2.xml.gz HTTP/1.1" 200 1362518
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles_3.xml.gz HTTP/1.1" 200 709780
+INFO:root:Done scraping.
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Scraping urls from the apartments.com robots.txt.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllProfiles.xml.gz HTTP/1.1" 200 237
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_TopProfiles.xml.gz HTTP/1.1" 200 236
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllAProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AProfiles.xml.gz HTTP/1.1" 200 165707
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BProfiles.xml.gz HTTP/1.1" 200 239053
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllCProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_CProfiles.xml.gz HTTP/1.1" 200 552398
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllDProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_DProfiles.xml.gz HTTP/1.1" 200 460074
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicProfiles.xml.gz HTTP/1.1" 200 257
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicPropertyProfiles.xml.gz HTTP/1.1" 200 223
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicPropertyProfiles.xml.gz HTTP/1.1" 200 837077
+INFO:root:Scraping urls from the apartments.com robots.txt.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllProfiles.xml.gz HTTP/1.1" 200 237
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_TopProfiles.xml.gz HTTP/1.1" 200 236
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllAProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AProfiles.xml.gz HTTP/1.1" 200 165707
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BProfiles.xml.gz HTTP/1.1" 200 239053
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllCProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_CProfiles.xml.gz HTTP/1.1" 200 552398
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllDProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_DProfiles.xml.gz HTTP/1.1" 200 460074
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicProfiles.xml.gz HTTP/1.1" 200 257
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicPropertyProfiles.xml.gz HTTP/1.1" 200 223
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicPropertyProfiles.xml.gz HTTP/1.1" 200 837077
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicSPMProfiles.xml.gz HTTP/1.1" 200 233
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicSPMProfiles.xml.gz HTTP/1.1" 200 1153149
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicSPMProfiles_2.xml.gz HTTP/1.1" 200 361299
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicFeedProfiles.xml.gz HTTP/1.1" 200 246
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles.xml.gz HTTP/1.1" 200 1096112
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_3.xml.gz HTTP/1.1" 200 1167382
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_5.xml.gz HTTP/1.1" 200 1202455
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_2.xml.gz HTTP/1.1" 200 1231033
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_4.xml.gz HTTP/1.1" 200 1154515
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_6.xml.gz HTTP/1.1" 200 595233
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllNotSearchableProfiles.xml.gz HTTP/1.1" 200 226
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_NotSearchableProfiles.xml.gz HTTP/1.1" 200 55250
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2Profiles.xml.gz HTTP/1.1" 200 226
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllTier2PropertyProfiles.xml.gz HTTP/1.1" 200 233
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles.xml.gz HTTP/1.1" 200 1375023
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles_2.xml.gz HTTP/1.1" 200 1362518
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles_3.xml.gz HTTP/1.1" 200 709780
+INFO:root:Done scraping.
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:875378 crawled so far.
+INFO:root:Scraping urls from the apartments.com robots.txt.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllProfiles.xml.gz HTTP/1.1" 200 237
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_TopProfiles.xml.gz HTTP/1.1" 200 236
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllAProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AProfiles.xml.gz HTTP/1.1" 200 165707
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BProfiles.xml.gz HTTP/1.1" 200 239053
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllCProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_CProfiles.xml.gz HTTP/1.1" 200 552398
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllDProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_DProfiles.xml.gz HTTP/1.1" 200 460074
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicProfiles.xml.gz HTTP/1.1" 200 257
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicPropertyProfiles.xml.gz HTTP/1.1" 200 223
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicPropertyProfiles.xml.gz HTTP/1.1" 200 837077
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicSPMProfiles.xml.gz HTTP/1.1" 200 233
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicSPMProfiles.xml.gz HTTP/1.1" 200 1153149
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicSPMProfiles_2.xml.gz HTTP/1.1" 200 361299
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicFeedProfiles.xml.gz HTTP/1.1" 200 246
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles.xml.gz HTTP/1.1" 200 1096112
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_3.xml.gz HTTP/1.1" 200 1167382
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_5.xml.gz HTTP/1.1" 200 1202455
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_2.xml.gz HTTP/1.1" 200 1231033
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_4.xml.gz HTTP/1.1" 200 1154515
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_6.xml.gz HTTP/1.1" 200 595233
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllNotSearchableProfiles.xml.gz HTTP/1.1" 200 226
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_NotSearchableProfiles.xml.gz HTTP/1.1" 200 55250
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2Profiles.xml.gz HTTP/1.1" 200 226
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllTier2PropertyProfiles.xml.gz HTTP/1.1" 200 233
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles.xml.gz HTTP/1.1" 200 1375023
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles_2.xml.gz HTTP/1.1" 200 1362518
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles_3.xml.gz HTTP/1.1" 200 709780
+INFO:root:Done scraping.
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:875379 crawled so far.
+INFO:root:876379 crawled so far.
+INFO:root:877379 crawled so far.
+INFO:root:878379 crawled so far.
+INFO:root:879379 crawled so far.
+INFO:root:880379 crawled so far.
+INFO:root:881379 crawled so far.
+INFO:root:882379 crawled so far.
+INFO:root:882863 crawled so far.
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+WARNING:root:Error loading previous progress from page_data folder.
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:875388 crawled so far.
+INFO:root:876388 crawled so far.
+INFO:root:877388 crawled so far.
+INFO:root:878388 crawled so far.
+INFO:root:879388 crawled so far.
+INFO:root:880388 crawled so far.
+INFO:root:881388 crawled so far.
+INFO:root:882388 crawled so far.
+INFO:root:883388 crawled so far.
+INFO:root:883820 crawled so far.
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:884243 crawled so far.
+INFO:root:Page Crawler is loading previous progress...
+WARNING:root:Error loading previous progress from page_data folder.
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:885236 crawled so far.
+INFO:root:886236 crawled so far.
+INFO:root:887236 crawled so far.
+INFO:root:888236 crawled so far.
+INFO:root:889236 crawled so far.
+INFO:root:890236 crawled so far.
+INFO:root:891236 crawled so far.
+INFO:root:892236 crawled so far.
+INFO:root:893236 crawled so far.
+INFO:root:894236 crawled so far.
+INFO:root:895236 crawled so far.
+INFO:root:896236 crawled so far.
+INFO:root:897236 crawled so far.
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+DEBUG:root:Unable to connect to the database.
+DEBUG:root:could not translate host name "data-team.cfvkbgrgybof.us-west-1.rds.amazonaws.com" to address: Unknown host
+
+DEBUG:root:Retrying connection...
+DEBUG:root:Unable to connect to the database.
+DEBUG:root:could not translate host name "data-team.cfvkbgrgybof.us-west-1.rds.amazonaws.com" to address: Unknown host
+
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:898198 crawled so far.
+INFO:root:899198 crawled so far.
+INFO:root:900198 crawled so far.
+INFO:root:901198 crawled so far.
+INFO:root:902198 crawled so far.
+INFO:root:903198 crawled so far.
+INFO:root:904198 crawled so far.
+INFO:root:905198 crawled so far.
+INFO:root:906198 crawled so far.
+INFO:root:907198 crawled so far.
+INFO:root:908198 crawled so far.
+INFO:root:909198 crawled so far.
+INFO:root:910198 crawled so far.
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:911151 crawled so far.
+INFO:root:912151 crawled so far.
+INFO:root:913151 crawled so far.
+INFO:root:914151 crawled so far.
+INFO:root:915151 crawled so far.
+INFO:root:916151 crawled so far.
+INFO:root:917151 crawled so far.
+INFO:root:918151 crawled so far.
+INFO:root:919151 crawled so far.
+INFO:root:920151 crawled so far.
+INFO:root:920376 crawled so far.
+INFO:root:Scraping urls from the apartments.com robots.txt.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllProfiles.xml.gz HTTP/1.1" 200 238
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_TopProfiles.xml.gz HTTP/1.1" 200 236
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllAProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AProfiles.xml.gz HTTP/1.1" 200 166168
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBProfiles.xml.gz HTTP/1.1" 200 216
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BProfiles.xml.gz HTTP/1.1" 200 239654
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllCProfiles.xml.gz HTTP/1.1" 200 216
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_CProfiles.xml.gz HTTP/1.1" 200 552203
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllDProfiles.xml.gz HTTP/1.1" 200 215
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_DProfiles.xml.gz HTTP/1.1" 200 453039
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicProfiles.xml.gz HTTP/1.1" 200 257
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicPropertyProfiles.xml.gz HTTP/1.1" 200 223
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicPropertyProfiles.xml.gz HTTP/1.1" 200 843654
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicSPMProfiles.xml.gz HTTP/1.1" 200 231
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicSPMProfiles.xml.gz HTTP/1.1" 200 1152691
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicSPMProfiles_2.xml.gz HTTP/1.1" 200 385475
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllBasicFeedProfiles.xml.gz HTTP/1.1" 200 247
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles.xml.gz HTTP/1.1" 200 1122907
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_5.xml.gz HTTP/1.1" 200 1201115
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_3.xml.gz HTTP/1.1" 200 1191722
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_2.xml.gz HTTP/1.1" 200 1225072
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_4.xml.gz HTTP/1.1" 200 1163863
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_BasicFeedProfiles_6.xml.gz HTTP/1.1" 200 522822
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllNotSearchableProfiles.xml.gz HTTP/1.1" 200 222
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_NotSearchableProfiles.xml.gz HTTP/1.1" 200 55041
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2Profiles.xml.gz HTTP/1.1" 200 224
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_AllTier2PropertyProfiles.xml.gz HTTP/1.1" 200 236
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles_2.xml.gz HTTP/1.1" 200 1368889
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles.xml.gz HTTP/1.1" 200 1370558
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.apartments.com
+DEBUG:urllib3.connectionpool:https://www.apartments.com:443 "GET /sitemap_Tier2PropertyProfiles_3.xml.gz HTTP/1.1" 200 702299
+INFO:root:Done scraping.
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:Page Crawler is loading previous progress...
+INFO:root:Page Crawler is done loading previous progress!
+INFO:root:Page Crawler is saving progress...
+INFO:root:Page Crawler is done saving progress!
+INFO:root:921418 crawled so far.
+INFO:root:922418 crawled so far.
+INFO:root:923418 crawled so far.
