@@ -1,4 +1,5 @@
 import psycopg2
+import psycopg2.extras
 import requests
 import json
 import re
@@ -180,10 +181,19 @@ def getResponse(url):
 	'''Takes a url and returns a response object.'''
 	try:
 		response = requests.get(url)
+		
+	# Attempt a longer wait if the connection was denied from server due to too many requests
+	except requests.exceptions.ConnectionError:
+		time.sleep(5)
+		response = requests.get(url)
+	
+	# This catches all other exceptions
 	except:									# This retries the url ONCE
 		time.sleep(1)
 		response = requests.get(url)
-	if not response.status_code == 200:
+	
+	# Process the status codes
+	if not response.status_code == 200:		# 200 means there were no problems
 		if response.status_code == 404: 	# This occurs when the listing is no longer on the site and the url gets redirected
 			return None
 		else:
@@ -307,19 +317,23 @@ def crawl(url):
 	listingId = responseJSON['listingId']
 	
 	
-	# Insert data into database
+	# Return data to be inserted into database
 	data = (url,owner,title,unit_type,price_type,street_address,city,region,zip_code,\
 		neighborhood,building_info,n_of_unit,lat,lon,image_json,amenities,state,description,\
 		phone_number,profileType, mediaCollection, rentals, reviews, costarVerified, propertyType, listingId)
 	
+	return data
+
+def insert_into_database(page_data):
+	'''This function is responsible for inserting all the data returned by the Pool scrape.'''
 	conn, cur = login_to_database()
 	query = 'INSERT INTO apartments_page_data VALUES (%s' + (', %s'*25) + ')'	# 26 total values to insert
-	cur.execute(query, data)
+	psycopg2.extras.execute_batch(cur, query, page_data, page_size=20)			# extras.execute_batch is MUCH faster than individual executes
 	conn.commit()
 	cur.close()
 	conn.close()
-	#return data
-
+	
+	
 def go(numThreads, batchSize):
 	'''Runs the crawler. Cant quite be gracefully stopped yet.'''
 	# Crawl in batches of batchSize
@@ -329,15 +343,25 @@ def go(numThreads, batchSize):
 		batch = urls_to_crawl[:batchSize]
 	else:
 		batch = urls_to_crawl
-		
+	
+	# Using a pool, asynchronously map threads to scrape all the urls.
 	with Pool(processes=numThreads) as pool:
-		pool.map(crawl, batch)
-		
+		page_data = pool.map(crawl, batch)
+	
+	# Clean the input to filter out urls that did not get a response.
+	cleaned_input = []
+	for page in page_data:
+		if page != None:
+			cleaned_input.append(page)
+			
+	insert_into_database(cleaned_input)
+	
+	# Mark the urls as crawled on the local cache.
 	for url in batch:
 		crawled_urls.add(url)
 		urls_to_crawl.remove(url)
 	
-	print("\n"+str(len(crawled_urls)) + " crawled so far.\n")
+	print("\n"+str(len(crawled_urls)) + " crawled so far.")
 	logging.info(str(len(crawled_urls)) + " crawled so far.")
 	
 	go(numThreads, batchSize)
@@ -358,8 +382,12 @@ def goWrapper():
 	'''A wrapper for go that reupdates if go crashes.
 	It revalidates with the database to avoid recrawling any ids.'''
 	try:
-		go(36, 5000) # Number of threads to use, Number to crawl per batch.
-	except Exception as e:
+		go(36, 1000) # Number of threads to use, Number to crawl per batch.
+	
+	except requests.exceptions.ConnectionError as e:	# If it was just a connection error restart
+		print(e)
+		goWrapper()
+	except Exception as e:						# Otherwise it was probably a database error and we should update from database
 		print(e)
 		updateFromDatabase()
 		goWrapper()
@@ -379,8 +407,8 @@ def main():
 	# Figure out what urls to crawl
 	import url_scrape
 	global urls_to_crawl
-	urls_to_crawl = list(url_scrape.crawl_apartments())
-	saveProgress()
+	#urls_to_crawl = list(url_scrape.crawl_apartments())
+	#saveProgress()
 	
 	# Reconcile the new list with already crawled urls.
 	updateFromDatabase()
@@ -394,3 +422,4 @@ def main():
 if __name__ == '__main__':
 	logging.basicConfig(filename="debug.log", level=logging.DEBUG)
 	main()
+	pass
