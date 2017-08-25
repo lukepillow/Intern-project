@@ -63,6 +63,10 @@ def getUrls(url):
 def crawl_apartments():
 	'''Returns a set containing all the links under the apartments.com robot.txt.'''
 	print("Scraping urls from the apartments.com robots.txt.")
+	
+	if not os.path.exists('temp'):
+		os.makedirs('temp')
+	
 	logging.info("Scraping urls from the apartments.com robots.txt.")
 	urls = getUrls('https://www.apartments.com/sitemap_AllProfiles.xml.gz')
 	print("Done scraping.")
