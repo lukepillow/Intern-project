@@ -1,6 +1,7 @@
 import requests
 import gzip
 import logging
+import os
 from bs4 import BeautifulSoup
 
 
