@@ -5,6 +5,7 @@ import time
 import psycopg2
 import psycopg2.extras
 import pickle
+import os
 
 
 
@@ -87,6 +88,8 @@ def getUrls(url):
 
 def crawl_airbnb():
 	'''Returns a set containing all links under the airbnb.com robots.txt in data tuples.'''
+	if not os.path.exists('temp'):
+		os.makedirs('temp')
 	results = getUrls('https://www.airbnb.com/sitemap-main-index.xml.gz')
 	return results
 	
