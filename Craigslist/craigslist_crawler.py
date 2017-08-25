@@ -4,8 +4,6 @@ from bs4 import BeautifulSoup
 
 
 
-
-
 def getResponse(url):
 	'''Returns the requests.Response object for the url.
 	Checks for 200 status_code'''
@@ -109,7 +107,8 @@ def crawl(url):
 	google_map_link, 
 	
 	attribute_group_1, 
-	attribute_group_2, 
+	attribute_group_2,
+	
 	posting_info)
 	
 
@@ -125,6 +124,7 @@ def crawl(url):
 
 
 def create_table():
+	table_name = 'craigslist_page_data'
     create_cmds = '''CREATE TABLE ''' +table_name+ '''
 						(
 							url TEXT UNIQUE NOT NULL,
